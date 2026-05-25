@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fay-Town Hottie | Small Batch Arkansas Heat</title>
+
+  <title>Fay-Town Hottie | Arkansas Heat</title>
 
   <style>
     :root {
@@ -16,11 +17,12 @@
       --muted:#c8b98d;
     }
 
-    * { box-sizing:border-box; margin:0; padding:0; }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     html { scroll-behavior:smooth; }
 
     body {
+      min-height:100vh;
       background:#050403;
       color:var(--cream);
       font-family:Arial, Helvetica, sans-serif;
@@ -31,14 +33,14 @@
       content:"";
       position:fixed;
       inset:0;
-      pointer-events:none;
       background:
-        radial-gradient(circle at 20% 18%, rgba(227,58,41,.28), transparent 28%),
-        radial-gradient(circle at 85% 22%, rgba(138,184,62,.18), transparent 30%),
-        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-      background-size:auto, auto, 42px 42px, 42px 42px;
-      z-index:-2;
+        radial-gradient(circle at 18% 30%, rgba(227,58,41,.34), transparent 30%),
+        radial-gradient(circle at 82% 26%, rgba(138,184,62,.22), transparent 28%),
+        radial-gradient(circle at 50% 90%, rgba(244,120,32,.22), transparent 35%),
+        linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+      background-size:auto, auto, auto, 42px 42px, 42px 42px;
+      z-index:-3;
     }
 
     body::after {
@@ -46,14 +48,18 @@
       position:fixed;
       inset:0;
       pointer-events:none;
-      background:rgba(0,0,0,.32);
-      z-index:-1;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,.22), rgba(0,0,0,.78)),
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      opacity:.42;
+      z-index:-2;
+      mix-blend-mode:screen;
     }
 
     a { color:inherit; text-decoration:none; }
 
     .wrap {
-      width:min(1180px, calc(100% - 36px));
+      width:min(1220px, calc(100% - 36px));
       margin:auto;
     }
 
@@ -63,42 +69,35 @@
       left:0;
       right:0;
       z-index:50;
-      padding:16px 0;
-      background:linear-gradient(to bottom, rgba(5,4,3,.96), rgba(5,4,3,.62), transparent);
-      backdrop-filter:blur(10px);
+      padding:18px 0;
+      background:linear-gradient(to bottom, rgba(5,4,3,.96), rgba(5,4,3,.58), transparent);
+      backdrop-filter:blur(12px);
     }
 
     .nav {
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:24px;
-    }
-
-    .brand {
-      display:flex;
       align-items:center;
-      width:220px;
+      gap:28px;
     }
 
     .nav-logo {
-      height:64px;
+      height:62px;
       width:auto;
       display:block;
-      object-fit:contain;
       border-radius:4px;
-      box-shadow:0 10px 24px rgba(0,0,0,.65);
+      box-shadow:0 12px 30px rgba(0,0,0,.7);
     }
 
     nav {
       display:flex;
-      align-items:center;
       gap:28px;
-      color:var(--muted);
+      align-items:center;
       font-size:13px;
-      text-transform:uppercase;
       letter-spacing:.16em;
+      text-transform:uppercase;
       font-weight:900;
+      color:var(--muted);
     }
 
     nav a:hover { color:var(--cream); }
@@ -107,251 +106,222 @@
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      border:2px solid var(--cream);
-      padding:14px 22px;
+      padding:15px 22px;
       border-radius:999px;
+      border:2px solid var(--cream);
       background:var(--red);
       color:#fff7df;
-      text-transform:uppercase;
-      letter-spacing:.12em;
       font-size:12px;
-      font-weight:900;
-      box-shadow:0 12px 30px rgba(227,58,41,.34);
-      transition:.2s ease;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+      font-weight:950;
+      box-shadow:0 16px 38px rgba(227,58,41,.38);
+      transition:.18s ease;
     }
 
     .btn:hover {
-      transform:translateY(-2px);
-      box-shadow:0 18px 42px rgba(227,58,41,.5);
+      transform:translateY(-2px) rotate(-1deg);
+      box-shadow:0 22px 52px rgba(227,58,41,.52);
     }
 
     .btn.alt {
-      background:transparent;
+      background:rgba(0,0,0,.28);
       color:var(--cream);
       box-shadow:none;
     }
 
-    .hero {
+    .home {
       min-height:100vh;
       display:grid;
       align-items:center;
-      padding:145px 0 80px;
+      padding:130px 0 48px;
+      position:relative;
+      overflow:hidden;
     }
 
-    .hero-grid {
+    .home::before {
+      content:"BURN FIRST • ASK QUESTIONS LATER • ARKANSAS HEAT • ";
+      position:absolute;
+      left:-8vw;
+      bottom:42px;
+      white-space:nowrap;
+      font-size:clamp(42px, 8vw, 112px);
+      line-height:1;
+      font-weight:950;
+      letter-spacing:-.08em;
+      color:rgba(242,224,181,.055);
+      text-transform:uppercase;
+      pointer-events:none;
+    }
+
+    .home-grid {
       display:grid;
-      grid-template-columns:1fr .95fr;
-      gap:58px;
+      grid-template-columns:.95fr 1.05fr;
       align-items:center;
+      gap:54px;
     }
 
     .eyebrow {
       color:var(--green);
-      font-weight:900;
-      letter-spacing:.24em;
       text-transform:uppercase;
+      letter-spacing:.28em;
+      font-weight:950;
       font-size:13px;
-      margin-bottom:18px;
+      margin-bottom:20px;
     }
 
     h1 {
-      font-size:clamp(58px, 8vw, 118px);
-      line-height:.86;
+      font-size:clamp(62px, 10vw, 154px);
+      line-height:.78;
+      letter-spacing:-.08em;
       text-transform:uppercase;
-      letter-spacing:-.06em;
       color:var(--red);
       text-shadow:
-        3px 3px 0 #000,
-        -1px 1px 0 var(--cream),
-        0 0 38px rgba(227,58,41,.36);
+        4px 4px 0 #000,
+        -2px 2px 0 var(--cream),
+        0 0 42px rgba(227,58,41,.42);
     }
 
     h1 span {
       display:block;
       color:var(--cream);
-      font-size:.42em;
-      letter-spacing:.12em;
-      margin-bottom:8px;
+      font-size:.33em;
+      letter-spacing:.15em;
+      margin-bottom:14px;
       text-shadow:3px 3px 0 #000;
     }
 
-    .lead {
+    .tagline {
       margin-top:28px;
-      max-width:620px;
-      color:#ddcfa4;
-      font-size:20px;
-      line-height:1.6;
-      font-weight:800;
+      max-width:630px;
+      font-size:clamp(19px, 2vw, 25px);
+      line-height:1.45;
+      font-weight:900;
+      color:#e0d2a4;
     }
 
-    .hero-actions {
+    .rotator {
+      margin-top:22px;
+      min-height:44px;
+      color:var(--green);
+      font-size:clamp(24px, 3vw, 42px);
+      line-height:1;
+      font-weight:950;
+      text-transform:uppercase;
+      letter-spacing:-.04em;
+      text-shadow:0 0 28px rgba(138,184,62,.35);
+    }
+
+    .actions {
       display:flex;
-      gap:14px;
       flex-wrap:wrap;
+      gap:14px;
       margin-top:34px;
     }
 
-    .hero-card {
-      min-height:560px;
-      border-radius:34px;
-      background:
-        radial-gradient(circle at center, rgba(227,58,41,.22), transparent 55%),
-        linear-gradient(145deg, rgba(242,224,181,.14), rgba(227,58,41,.09)),
-        #120c08;
-      border:2px solid rgba(242,224,181,.28);
-      box-shadow:0 34px 90px rgba(0,0,0,.58);
+    .cover-card {
+      position:relative;
+      border-radius:36px;
+      min-height:590px;
       display:grid;
       place-items:center;
-      padding:36px;
+      padding:34px;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(227,58,41,.26), transparent 48%),
+        linear-gradient(145deg, rgba(242,224,181,.13), rgba(227,58,41,.07)),
+        rgba(7,5,3,.9);
+      border:2px solid rgba(242,224,181,.26);
+      box-shadow:0 36px 100px rgba(0,0,0,.62);
       overflow:hidden;
-      position:relative;
     }
 
-    .hero-card::before {
+    .cover-card::before {
       content:"";
       position:absolute;
-      inset:28px;
-      border-radius:26px;
+      inset:26px;
+      border-radius:28px;
+      background:#050403;
+      box-shadow:
+        inset 0 0 90px rgba(227,58,41,.18),
+        inset 0 0 160px rgba(138,184,62,.08);
+    }
+
+    .cover-card::after {
+      content:"";
+      position:absolute;
+      width:170%;
+      height:170%;
       background:
-        radial-gradient(circle at center, rgba(244,120,32,.16), transparent 58%),
-        #080604;
-      box-shadow:inset 0 0 80px rgba(227,58,41,.16);
+        conic-gradient(from 0deg, transparent, rgba(227,58,41,.26), transparent, rgba(138,184,62,.18), transparent);
+      animation:spin 18s linear infinite;
+      opacity:.65;
+    }
+
+    @keyframes spin {
+      to { transform:rotate(360deg); }
     }
 
     .hero-logo {
       position:relative;
       z-index:2;
-      width:100%;
-      max-width:520px;
+      width:min(100%, 560px);
       height:auto;
       display:block;
       border-radius:4px;
       box-shadow:
-        0 28px 55px rgba(0,0,0,.7),
-        0 0 46px rgba(227,58,41,.18);
+        0 28px 58px rgba(0,0,0,.76),
+        0 0 50px rgba(227,58,41,.2);
     }
 
-    .section {
-      padding:95px 0;
-    }
-
-    .section-title {
-      font-size:clamp(42px, 6vw, 82px);
-      line-height:.92;
-      text-transform:uppercase;
-      letter-spacing:-.06em;
-      color:var(--cream);
-      text-shadow:4px 4px 0 #000;
-    }
-
-    .section-title em {
-      color:var(--red);
-      font-style:normal;
-    }
-
-    .section-copy {
-      color:#d6c89b;
-      font-size:18px;
-      line-height:1.7;
-      max-width:700px;
-      margin-top:18px;
-      font-weight:700;
-    }
-<!-- ===== PART 1 END ===== -->
-
-    <!-- ===== PART 2 START: REMAINING CSS + HERO ===== -->
-
-    .product-grid {
+    .sticker {
+      position:absolute;
+      z-index:3;
+      right:24px;
+      bottom:22px;
+      width:168px;
+      height:168px;
+      border-radius:50%;
       display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-      margin-top:46px;
-    }
-
-    .product {
-      min-height:360px;
-      border-radius:24px;
-      padding:24px;
-      background:#100d0a;
-      border:2px solid rgba(242,224,181,.18);
-      position:relative;
-      overflow:hidden;
-      box-shadow:0 18px 50px rgba(0,0,0,.35);
-    }
-
-    .product:nth-child(1){background:linear-gradient(145deg,#160b08,#331007);}
-    .product:nth-child(2){background:linear-gradient(145deg,#120b08,#452108);}
-    .product:nth-child(3){background:linear-gradient(145deg,#0e1208,#2e3a12);}
-    .product:nth-child(4){background:linear-gradient(145deg,#170c08,#5c1e0b);}
-
-    .product h3 {
-      font-size:28px;
-      line-height:.95;
-      text-transform:uppercase;
-      color:#fff7df;
-      margin-bottom:16px;
-    }
-
-    .product p {
-      color:#d8c89c;
-      line-height:1.55;
-      font-weight:700;
-      position:relative;
-      z-index:2;
-    }
-
-    .heat {
-      margin-top:22px;
-      color:var(--orange);
-      letter-spacing:.22em;
-      font-size:20px;
-    }
-
-    .mini-bottle {
-      position:absolute;
-      right:18px;
-      bottom:-22px;
-      width:82px;
-      height:210px;
-      border-radius:24px 24px 18px 18px;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,.24), transparent 28%),
-        var(--orange);
-      border:3px solid #050403;
-      transform:rotate(8deg);
-      opacity:.92;
-    }
-
-    .mini-bottle::before {
-      content:"";
-      position:absolute;
-      top:-38px;
-      left:19px;
-      width:36px;
-      height:48px;
-      background:#15110d;
-      border:3px solid #050403;
-      border-radius:10px;
-    }
-
-    .big-band {
-      padding:42px 0;
-      background:var(--red);
-      color:var(--cream);
-      border-block:4px solid var(--cream);
-      transform:rotate(-1deg);
-      margin:70px 0;
-      overflow:hidden;
-      box-shadow:0 18px 50px rgba(0,0,0,.45);
-    }
-
-    .big-band div {
-      font-size:clamp(30px, 5vw, 68px);
-      text-transform:uppercase;
+      place-items:center;
+      text-align:center;
+      background:var(--cream);
+      color:#100b07;
+      border:4px solid #100b07;
+      box-shadow:0 18px 34px rgba(0,0,0,.48);
+      transform:rotate(9deg);
       font-weight:950;
-      letter-spacing:-.05em;
+      text-transform:uppercase;
+      line-height:.95;
+      letter-spacing:-.04em;
+    }
+
+    .sticker strong {
+      color:var(--red);
+      font-size:28px;
+      display:block;
+    }
+
+    .chaos-strip {
+      position:fixed;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index:30;
+      padding:10px 0;
+      background:var(--red);
+      border-top:3px solid var(--cream);
+      color:var(--cream);
+      overflow:hidden;
+      box-shadow:0 -12px 32px rgba(0,0,0,.45);
+    }
+
+    .chaos-strip div {
       white-space:nowrap;
-      animation:scroll 20s linear infinite;
+      font-size:15px;
+      font-weight:950;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      animation:scroll 24s linear infinite;
     }
 
     @keyframes scroll {
@@ -359,379 +329,134 @@
       to { transform:translateX(-50%); }
     }
 
-    .split {
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:34px;
-      align-items:stretch;
-      margin-top:42px;
-    }
-
-    .panel {
-      border:2px solid rgba(242,224,181,.22);
-      background:linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.015));
-      border-radius:28px;
-      padding:34px;
-      box-shadow:0 28px 60px rgba(0,0,0,.4);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .panel::after {
-      content:"";
-      position:absolute;
-      inset:auto -20% -50% -20%;
-      height:200px;
-      background:radial-gradient(circle, rgba(227,58,41,.28), transparent 65%);
+    .mobile-note {
+      display:none;
+      margin-top:20px;
+      color:var(--muted);
+      font-weight:800;
+      line-height:1.5;
     }
 
     @media (max-width:900px) {
       nav { display:none; }
-      .hero-grid,
-      .split { grid-template-columns:1fr; }
-      .product-grid { grid-template-columns:1fr 1fr; }
-      .hero-card { min-height:420px; }
+      .home-grid { grid-template-columns:1fr; gap:34px; }
+      .cover-card { min-height:420px; }
+      .sticker { width:126px; height:126px; font-size:12px; }
+      .sticker strong { font-size:22px; }
     }
 
     @media (max-width:560px) {
-      .product-grid { grid-template-columns:1fr; }
-      .hero-actions { flex-direction:column; }
+      header { padding:12px 0; }
+      .nav-logo { height:48px; }
       .btn { width:100%; }
-      .hero { padding-top:120px; }
+      .actions { flex-direction:column; }
+      .cover-card { padding:22px; min-height:350px; }
+      .home { padding-top:110px; }
+      .mobile-note { display:block; }
     }
-
   </style>
 </head>
+<!-- ===== PART 1 END ===== -->
 
+  <!-- ===== PART 2 START: BODY + SCRIPT ===== -->
 <body>
 
 <header>
   <div class="wrap nav">
-
-    <a class="brand" href="#top">
+    <a href="index.html" aria-label="Fay-Town Hottie Home">
       <img class="nav-logo" src="assets/logo-horizontal.png" alt="Fay-Town Hottie logo">
     </a>
 
     <nav>
-      <a href="#sauce">The Sauce</a>
-      <a href="#story">The Story</a>
-      <a href="#supply">The Supply</a>
-      <a href="mailto:orders@faytownhottie.com">Order</a>
+      <a href="the-sauce/">The Sauce</a>
+      <a href="the-story/">The Story</a>
+      <a href="the-supply/">The Supply</a>
+      <a href="the-cult/">The Cult</a>
+      <a href="mailto:orders@faytownhottie.com">Contact</a>
     </nav>
 
-    <a class="btn" href="#supply">Get Sauce</a>
-
+    <a class="btn" href="the-supply/">Get Sauce</a>
   </div>
 </header>
 
-<main id="top">
+<main class="home">
+  <div class="wrap home-grid">
 
-<section class="hero">
-  <div class="wrap hero-grid">
-
-    <div>
-      <div class="eyebrow">Small Batch Arkansas Heat</div>
+    <section>
+      <div class="eyebrow">Handmade In Fay-Town, Arkansas</div>
 
       <h1>
         <span>Fay-Town</span>
         Hottie
       </h1>
 
-      <p class="lead">
-        Handmade hot sauce from Northwest Arkansas — loud flavor,
-        real peppers, backyard energy, and enough heat to make boring food nervous.
+      <p class="tagline">
+        Small batch hot sauce for backyard legends, late-night survivors,
+        grill criminals, sandwich freaks, and anyone tired of weak sauce.
       </p>
 
-      <div class="hero-actions">
-        <a class="btn" href="#supply">Order The Supply</a>
-        <a class="btn alt" href="#sauce">Meet The Sauce</a>
-      </div>
-    </div>
+      <div class="rotator" id="rotator">Burn First.</div>
 
-    <div class="hero-card">
-      <img
-        class="hero-logo"
-        src="assets/logo-horizontal.png"
-        alt="Fay-Town Hottie Arkansas Heat logo"
-      >
-    </div>
+      <div class="actions">
+        <a class="btn" href="the-supply/">Enter The Supply</a>
+        <a class="btn alt" href="the-sauce/">Meet The Sauces</a>
+      </div>
+
+      <p class="mobile-note">
+        Local heat. Real peppers. Loud flavor. No corporate sauce energy.
+      </p>
+    </section>
+
+    <section class="cover-card">
+      <img class="hero-logo" src="assets/logo-horizontal.png" alt="Fay-Town Hottie Arkansas Heat logo">
+
+      <div class="sticker">
+        Official<br>
+        Sauce Of<br>
+        <strong>Bad</strong>
+        Decisions
+      </div>
+    </section>
 
   </div>
-</section>
+</main>
 
-<div class="big-band">
+<div class="chaos-strip">
   <div>
-    Burn First, Ask Questions Later • Small Batch • Big Flavor • Serious Heat •
-    Burn First, Ask Questions Later • Small Batch • Big Flavor • Serious Heat •
+    Burn First, Ask Questions Later • Arkansas Heat • Small Batch • Big Flavor • Local Legend Energy •
+    Burn First, Ask Questions Later • Arkansas Heat • Small Batch • Big Flavor • Local Legend Energy •
   </div>
 </div>
 
-<section id="sauce" class="section">
-  <div class="wrap">
-
-    <div class="eyebrow">The Sauce</div>
-
-    <h2 class="section-title">
-      Flavor With <em>Attitude</em>
-    </h2>
-
-    <p class="section-copy">
-      Built for tacos, wings, burgers, breakfast, smoked meats,
-      late-night leftovers, and anyone who thinks store-bought
-      hot sauce has been playing it too safe.
-    </p>
-
-    <div class="product-grid">
-
-      <article class="product">
-        <h3>Ghost Rider</h3>
-        <p>
-          Bright orange ghost pepper heat with a clean burn
-          and big personality.
-        </p>
-        <div class="heat">🔥🔥🔥🔥🔥</div>
-        <div class="mini-bottle"></div>
-      </article>
-
-      <article class="product">
-        <h3>Red Habanero</h3>
-        <p>
-          Fruit-forward, fiery, and made for anything coming off a grill.
-        </p>
-        <div class="heat">🔥🔥🔥🔥</div>
-        <div class="mini-bottle"></div>
-      </article>
-
-      <article class="product">
-        <h3>Hot Sandwich Sauce</h3>
-        <p>
-          Green, tangy, savory heat made for sandwiches,
-          burgers, and fries.
-        </p>
-        <div class="heat">🔥🔥🔥</div>
-        <div class="mini-bottle"></div>
-      </article>
-
-      <article class="product">
-        <h3>Spicy Sweet</h3>
-        <p>
-          Pickled carrots, jalapeño bite, and sweet heat
-          with snackable chaos.
-        </p>
-        <div class="heat">🔥🔥</div>
-        <div class="mini-bottle"></div>
-      </article>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ===== PART 2 END ===== -->
-
-  <!-- ===== PART 3 START: STORY + SUPPLY + FOOTER ===== -->
-
-<section id="story" class="section">
-  <div class="wrap split">
-
-    <div>
-
-      <div class="eyebrow">The Story</div>
-
-      <h2 class="section-title">
-        Made Hot In <em>Fay-Town</em>
-      </h2>
-
-      <p class="section-copy">
-        Fay-Town Hottie is handmade in small batches with real peppers,
-        real flavor, and the kind of personality you only get from
-        a sauce made by someone who actually loves the process.
-      </p>
-
-      <p class="section-copy">
-        It is not trying to be another clean grocery-store bottle.
-        It is local, loud, spicy, handmade, and built for people
-        who want their food to hit back.
-      </p>
-
-    </div>
-
-    <div class="panel">
-
-      <div class="eyebrow">Northwest Arkansas Heat</div>
-
-      <h2 class="section-title">
-        No Weak <em>Sauce</em>
-      </h2>
-
-      <p class="section-copy">
-        Every batch is built around flavor first, heat second,
-        and personality always. This is Arkansas heat with a
-        backyard soul and a punk-rock label.
-      </p>
-
-    </div>
-
-  </div>
-</section>
-
-<section id="supply" class="section">
-
-  <div class="wrap">
-
-    <div class="eyebrow">The Supply</div>
-
-    <h2 class="section-title">
-      Order The <em>Heat</em>
-    </h2>
-
-    <p class="section-copy">
-      Request bottles, market bundles, local pickup,
-      or custom small-batch drops around Northwest Arkansas.
-    </p>
-
-    <div class="split" style="margin-top:50px;">
-
-      <div class="panel">
-
-        <h2 class="section-title" style="font-size:58px;">
-          Current <em>Drop</em>
-        </h2>
-
-        <div style="margin-top:30px; display:grid; gap:16px;">
-
-          <div style="
-            display:flex;
-            justify-content:space-between;
-            padding:18px;
-            border-radius:18px;
-            background:rgba(0,0,0,.28);
-            border:1px solid rgba(242,224,181,.14);
-            font-weight:900;
-          ">
-            <span>Ghost Rider</span>
-            <span style="color:var(--orange);">🔥🔥🔥🔥🔥</span>
-          </div>
-
-          <div style="
-            display:flex;
-            justify-content:space-between;
-            padding:18px;
-            border-radius:18px;
-            background:rgba(0,0,0,.28);
-            border:1px solid rgba(242,224,181,.14);
-            font-weight:900;
-          ">
-            <span>Red Habanero</span>
-            <span style="color:var(--orange);">🔥🔥🔥🔥</span>
-          </div>
-
-          <div style="
-            display:flex;
-            justify-content:space-between;
-            padding:18px;
-            border-radius:18px;
-            background:rgba(0,0,0,.28);
-            border:1px solid rgba(242,224,181,.14);
-            font-weight:900;
-          ">
-            <span>Hot Sandwich Sauce</span>
-            <span style="color:var(--orange);">🔥🔥🔥</span>
-          </div>
-
-          <div style="
-            display:flex;
-            justify-content:space-between;
-            padding:18px;
-            border-radius:18px;
-            background:rgba(0,0,0,.28);
-            border:1px solid rgba(242,224,181,.14);
-            font-weight:900;
-          ">
-            <span>Spicy Sweet Carrots</span>
-            <span style="color:var(--orange);">🔥🔥</span>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="panel" style="
-        background:
-        linear-gradient(145deg, rgba(227,58,41,.22), rgba(138,184,62,.08)),
-        #0d0907;
-      ">
-
-        <div class="eyebrow">Get On The Supply List</div>
-
-        <h2 class="section-title" style="font-size:56px;">
-          Burn First.<br>
-          Ask Questions Later.
-        </h2>
-
-        <p class="section-copy">
-          Send an order request with the flavors you want,
-          quantity needed, and whether you want local pickup,
-          drop-off, or market handoff.
-        </p>
-
-        <div style="margin-top:34px; display:flex; flex-wrap:wrap; gap:14px;">
-
-          <a
-            class="btn"
-            href="mailto:orders@faytownhottie.com?subject=Fay-Town%20Hottie%20Order"
-          >
-            Start Order
-          </a>
-
-          <a
-            class="btn alt"
-            href="#top"
-          >
-            Back To Top
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<footer style="
-  padding:50px 0;
-  border-top:1px solid rgba(242,224,181,.14);
-  text-align:center;
-  color:var(--muted);
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:.14em;
-  font-weight:900;
-">
-
-  Fay-Town Hottie • Northwest Arkansas • Small Batch Arkansas Heat
-
-</footer>
-
-</main>
-
 <script>
-  const header = document.querySelector("header");
+  const phrases = [
+    "Burn First.",
+    "Arkansas Heat.",
+    "Fuel For Bad Decisions.",
+    "Handmade Chaos.",
+    "Backyard Violence.",
+    "Late Night Survival Sauce.",
+    "No Weak Sauce."
+  ];
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 30) {
-      header.style.background = "rgba(5,4,3,.96)";
-    } else {
-      header.style.background =
-        "linear-gradient(to bottom, rgba(5,4,3,.96), rgba(5,4,3,.62), transparent)";
-    }
-  });
+  const rotator = document.getElementById("rotator");
+  let index = 0;
+
+  setInterval(() => {
+    index = (index + 1) % phrases.length;
+    rotator.style.opacity = 0;
+    rotator.style.transform = "translateY(8px) rotate(-1deg)";
+
+    setTimeout(() => {
+      rotator.textContent = phrases[index];
+      rotator.style.opacity = 1;
+      rotator.style.transform = "translateY(0) rotate(0deg)";
+    }, 180);
+  }, 1700);
+
+  rotator.style.transition = "opacity .18s ease, transform .18s ease";
 </script>
 
 </body>
 </html>
-
-<!-- ===== PART 3 END ===== -->
+<!-- ===== PART 2 END ===== -->
