@@ -6,20 +6,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>Fay-Town Hottie | Arkansas Heat</title>
+<link rel="stylesheet" href="shared/nav.css">
 
 <style>
-
 :root{
   --black:#050403;
   --cream:#f2e0b5;
   --red:#e33a29;
   --green:#8ab83e;
+  --orange:#f47820;
+  --muted:#c8b98d;
 }
 
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
@@ -37,9 +43,10 @@ body::before{
   background:
     radial-gradient(circle at 15% 30%, rgba(227,58,41,.35), transparent 30%),
     radial-gradient(circle at 85% 22%, rgba(138,184,62,.18), transparent 28%),
+    radial-gradient(circle at 50% 90%, rgba(244,120,32,.14), transparent 34%),
     linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size:auto, auto, 42px 42px, 42px 42px;
+  background-size:auto, auto, auto, 42px 42px, 42px 42px;
   z-index:-3;
 }
 
@@ -49,6 +56,7 @@ body::after{
   inset:0;
   background:rgba(0,0,0,.42);
   z-index:-2;
+  pointer-events:none;
 }
 
 a{
@@ -59,47 +67,6 @@ a{
 .wrap{
   width:min(1280px, calc(100% - 40px));
   margin:auto;
-}
-
-header{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index:50;
-  padding:18px 0;
-  background:linear-gradient(to bottom, rgba(5,4,3,.95), rgba(5,4,3,.55), transparent);
-  backdrop-filter:blur(12px);
-}
-
-.nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:24px;
-}
-
-.logo{
-  height:64px;
-  display:block;
-}
-
-nav{
-  display:flex;
-  align-items:center;
-  gap:34px;
-  font-size:13px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  font-weight:900;
-}
-
-nav a{
-  color:#d8c79c;
-}
-
-nav a:hover{
-  color:white;
 }
 
 .btn{
@@ -130,11 +97,36 @@ nav a:hover{
   box-shadow:none;
 }
 
+.drop-alert{
+  position:relative;
+  z-index:3;
+  margin-top:96px;
+  background:var(--cream);
+  color:#130d08;
+  border-block:3px solid #130d08;
+  overflow:hidden;
+}
+
+.drop-alert-track{
+  white-space:nowrap;
+  padding:11px 0;
+  font-size:13px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:950;
+  animation:alertScroll 24s linear infinite;
+}
+
+@keyframes alertScroll{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+
 .hero{
-  min-height:100vh;
+  min-height:calc(100vh - 48px);
   display:grid;
   align-items:center;
-  padding:140px 0 120px;
+  padding:70px 0 105px;
   position:relative;
   background:
     radial-gradient(circle at 20% 40%, rgba(227,58,41,.18), transparent 38%);
@@ -235,7 +227,251 @@ h1 span{
   100%{transform:translateY(0px) rotate(-1deg);}
 }
 
+.section{
+  position:relative;
+  padding:84px 0;
+  border-top:1px solid rgba(242,224,181,.12);
+}
 
+.section-title{
+  font-size:clamp(46px, 7vw, 105px);
+  line-height:.86;
+  letter-spacing:-.07em;
+  text-transform:uppercase;
+  text-shadow:4px 4px 0 #000;
+}
+
+.section-title em{
+  color:var(--red);
+  font-style:normal;
+}
+
+.section-copy{
+  margin-top:22px;
+  max-width:760px;
+  color:#d9c99e;
+  font-size:20px;
+  line-height:1.55;
+  font-weight:800;
+}
+
+.starter-grid{
+  display:grid;
+  grid-template-columns:1fr .9fr;
+  gap:38px;
+  align-items:center;
+  margin-top:42px;
+}
+
+.starter-card{
+  border-radius:30px;
+  padding:34px;
+  background:linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.018));
+  border:2px solid rgba(242,224,181,.2);
+  box-shadow:0 28px 70px rgba(0,0,0,.5);
+}
+
+.starter-card h3{
+  font-size:clamp(40px,5vw,74px);
+  line-height:.9;
+  text-transform:uppercase;
+  color:var(--cream);
+  text-shadow:4px 4px 0 #000;
+}
+
+.starter-card h3 em{
+  color:var(--green);
+  font-style:normal;
+}
+
+.starter-card p{
+  margin-top:20px;
+  color:#ddcfa4;
+  font-size:19px;
+  line-height:1.55;
+  font-weight:800;
+}
+
+.starter-list{
+  display:grid;
+  gap:12px;
+  margin-top:22px;
+}
+
+.starter-list div{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  padding:14px 16px;
+  border-radius:16px;
+  background:rgba(0,0,0,.32);
+  border:1px solid rgba(242,224,181,.14);
+  font-weight:900;
+}
+
+.starter-list span{
+  color:var(--green);
+}
+
+.starter-img{
+  width:100%;
+  border-radius:28px;
+  box-shadow:0 30px 80px rgba(0,0,0,.62);
+  transform:rotate(1.5deg);
+}
+
+.heat-grid{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:18px;
+  margin-top:42px;
+}
+
+.heat-item{
+  padding:22px;
+  border-radius:24px;
+  background:#0b0806;
+  border:1px solid rgba(242,224,181,.16);
+  box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+
+.heat-item h3{
+  font-size:26px;
+  line-height:.95;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.heat-item p{
+  color:#d8c89c;
+  font-weight:800;
+  line-height:1.45;
+}
+
+.heat-bar{
+  height:12px;
+  border-radius:999px;
+  background:rgba(242,224,181,.16);
+  margin-top:16px;
+  overflow:hidden;
+}
+
+.heat-fill{
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg, var(--green), var(--orange), var(--red));
+}
+
+.testimonials{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:18px;
+  margin-top:42px;
+}
+
+.quote{
+  padding:26px;
+  border-radius:24px;
+  background:var(--cream);
+  color:#130d08;
+  box-shadow:0 20px 55px rgba(0,0,0,.45);
+  transform:rotate(-1deg);
+}
+
+.quote:nth-child(2){
+  transform:rotate(1deg);
+}
+
+.quote:nth-child(3){
+  transform:rotate(-.5deg);
+}
+
+.quote p{
+  font-size:20px;
+  line-height:1.3;
+  font-weight:950;
+}
+
+.quote span{
+  display:block;
+  margin-top:18px;
+  color:var(--red);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:11px;
+  font-weight:950;
+}
+
+.local-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:18px;
+  margin-top:42px;
+}
+
+.local-card{
+  padding:28px;
+  border-radius:26px;
+  background:linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.018));
+  border:2px solid rgba(242,224,181,.16);
+  min-height:220px;
+}
+
+.local-card h3{
+  font-size:32px;
+  line-height:.95;
+  text-transform:uppercase;
+  color:var(--red);
+  margin-bottom:14px;
+}
+
+.local-card p{
+  color:#d8c89c;
+  font-weight:800;
+  line-height:1.5;
+}
+
+.footer{
+  padding:64px 0 96px;
+  border-top:4px solid var(--cream);
+  background:#070504;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:center;
+}
+
+.footer-logo{
+  max-width:280px;
+  width:100%;
+  display:block;
+  margin-bottom:20px;
+}
+
+.footer p{
+  color:#d8c89c;
+  font-weight:800;
+  line-height:1.5;
+  max-width:580px;
+}
+
+.footer-links{
+  display:flex;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+  gap:16px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:12px;
+  font-weight:950;
+}
+
+.footer-links a{
+  color:#d8c79c;
+}
 
 .ticker{
   position:fixed;
@@ -262,18 +498,24 @@ h1 span{
   from{transform:translateX(0);}
   to{transform:translateX(-50%);}
 }
+<!-- ===== PART 1 END ===== -->
 
+  <!-- ===== PART 2 START: RESPONSIVE CSS + BODY HERO ===== -->
 @media(max-width:900px){
-
-
-  .hero{
-    min-height:100svh;
-    padding:92px 0 70px;
+  .drop-alert{
+    margin-top:72px;
   }
 
-  .hero-grid{
+  .hero{
+    min-height:auto;
+    padding:42px 0 64px;
+  }
+
+  .hero-grid,
+  .starter-grid,
+  .footer-grid{
     grid-template-columns:1fr;
-    gap:18px;
+    gap:24px;
   }
 
   .eyebrow{
@@ -303,29 +545,25 @@ h1 span{
 
   .hero-image{
     margin-top:0;
-    max-height:38svh;
+    max-height:40svh;
     object-fit:cover;
     object-position:center;
   }
 
+  .heat-grid,
+  .testimonials,
+  .local-grid{
+    grid-template-columns:1fr;
+  }
+
+  .footer-links{
+    justify-content:flex-start;
+  }
 }
 
 @media(max-width:560px){
-
-  header{
-    padding:10px 0;
-  }
-
   .wrap{
     width:min(1280px, calc(100% - 28px));
-  }
-
-  .logo{
-    height:44px;
-  }
-
-  .hero{
-    padding-top:78px;
   }
 
   .hero-actions{
@@ -348,42 +586,21 @@ h1 span{
     padding:12px 0;
   }
 
-}
-
-  /* ===== MOBILE NAV START ===== */
-@media(max-width:900px){
-  nav{
-    position:fixed;
-    left:0;
-    right:0;
-    bottom:0;
-    z-index:200;
-    display:flex;
-    justify-content:flex-start;
-    gap:18px;
-    padding:14px 16px;
-    background:rgba(5,4,3,.97);
-    border-top:2px solid var(--cream);
-    font-size:10px;
-    overflow-x:auto;
+  .section{
+    padding:62px 0;
   }
 
-  body{
-    padding-bottom:76px;
+  .starter-card{
+    padding:24px;
   }
 }
-/* ===== MOBILE NAV END ===== */
-  
 </style>
 </head>
-<!-- ===== PART 1 END ===== -->
 
-  <!-- ===== PART 2 START: BODY + SCRIPT ===== -->
 <body>
 
 <header>
   <div class="wrap nav">
-
     <a href="index.html">
       <img class="logo" src="asset/logo-horizontal.png" alt="Fay-Town Hottie">
     </a>
@@ -397,19 +614,19 @@ h1 span{
     </nav>
 
     <a class="btn" href="the-supply/">Get Sauce</a>
-
   </div>
 </header>
 
+<div class="drop-alert">
+  <div class="drop-alert-track">
+    Current Drop: 5-Bottle Starter Pack Available This Week • Local Pickup / NWA Delivery • Current Drop: 5-Bottle Starter Pack Available This Week • Local Pickup / NWA Delivery •
+  </div>
+</div>
+
 <section class="hero">
-
   <div class="wrap hero-grid">
-
     <div>
-
-      <div class="eyebrow">
-        Handmade In Fay-Town, Arkansas
-      </div>
+      <div class="eyebrow">Handmade In Fay-Town, Arkansas</div>
 
       <h1>
         <span>Fay-Town</span>
@@ -417,54 +634,195 @@ h1 span{
       </h1>
 
       <div class="hero-copy">
-        Small batch hot sauce for backyard legends,
-        late-night survivors, grill criminals,
-        sandwich freaks, and anyone tired of weak sauce.
+        Small batch hot sauce for backyard legends, late-night survivors,
+        grill criminals, sandwich freaks, and anyone tired of weak sauce.
       </div>
 
-      <div class="rotating" id="rotatingText">
-        Burn First.
-      </div>
+      <div class="rotating" id="rotatingText">Burn First.</div>
 
       <div class="hero-actions">
         <a class="btn" href="the-supply/">Enter The Supply</a>
-        <a class="btn alt" href="the-sauce/">
-  Meet The Sauces
-</a>
+        <a class="btn alt" href="the-sauce/">Meet The Sauces</a>
       </div>
-
     </div>
 
     <div class="hero-image-wrap">
-
       <img
-  class="hero-image"
-  src="asset/new-hero.png"
-  alt="Fay-Town Hottie owner holding Ghost Rider hot sauce"
->
+        class="hero-image"
+        src="asset/new-hero.png"
+        alt="Fay-Town Hottie owner holding Ghost Rider hot sauce"
+      >
+    </div>
+  </div>
+</section>
+<!-- ===== PART 2 END ===== -->
 
-      
+  <!-- ===== PART 3 START: NEW HOMEPAGE SECTIONS + SCRIPT ===== -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">The Starter Pack</div>
+    <h2 class="section-title">Five Bottles. <em>One Bad Decision.</em></h2>
+    <p class="section-copy">
+      The Fay-Town starter pack is the easiest way into the heat cult:
+      the signature bottle, the daily driver, the sandwich weapon, the restaurant sauce,
+      and the insane one people should probably stop daring each other to try.
+    </p>
 
+    <div class="starter-grid">
+      <div class="starter-card">
+        <h3>The Fay-Town <em>Starter Pack</em></h3>
+        <p>
+          Built for people who want the full lineup, not one lonely bottle.
+          Put it on tacos, burgers, wings, breakfast, sandwiches, fries, and anything
+          currently suffering from weak flavor.
+        </p>
+
+        <div class="starter-list">
+          <div>Porch Fire <span>Signature</span></div>
+          <div>Red Habanero <span>Daily Driver</span></div>
+          <div>Hot Sandwich Sauce <span>Cult Classic</span></div>
+          <div>White Sauce <span>Restaurant Favorite</span></div>
+          <div>Ghost Rider <span>Emotional Damage</span></div>
+        </div>
+
+        <a class="btn" href="the-supply/" style="margin-top:24px;">Request The Drop</a>
+      </div>
+
+      <img class="starter-img" src="asset/market-box.png" alt="Fay-Town Hottie five bottle starter pack">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">The Heat Scale</div>
+    <h2 class="section-title">Choose Your <em>Damage</em></h2>
+    <p class="section-copy">
+      Not every bottle is trying to ruin your afternoon. Some are daily drivers.
+      Some are sandwich enhancers. One is basically a dare in liquid form.
+    </p>
+
+    <div class="heat-grid">
+      <div class="heat-item">
+        <h3>Porch Fire</h3>
+        <p>Balanced, bold, easy to put on everything.</p>
+        <div class="heat-bar"><div class="heat-fill" style="width:40%;"></div></div>
+      </div>
+
+      <div class="heat-item">
+        <h3>Hot Sandwich Sauce</h3>
+        <p>Tangy, punchy, built for burgers and late-night food choices.</p>
+        <div class="heat-bar"><div class="heat-fill" style="width:60%;"></div></div>
+      </div>
+
+      <div class="heat-item">
+        <h3>White Sauce</h3>
+        <p>Creamy garlic habanero with smoky restaurant energy.</p>
+        <div class="heat-bar"><div class="heat-fill" style="width:60%;"></div></div>
+      </div>
+
+      <div class="heat-item">
+        <h3>Red Habanero</h3>
+        <p>The flavorful daily-driver with real pepper attitude.</p>
+        <div class="heat-bar"><div class="heat-fill" style="width:80%;"></div></div>
+      </div>
+
+      <div class="heat-item">
+        <h3>Ghost Rider</h3>
+        <p>The insane one. Not responsible for tears.</p>
+        <div class="heat-bar"><div class="heat-fill" style="width:100%;"></div></div>
+      </div>
+
+      <div class="heat-item">
+        <h3>Spicy Sweet Carrots</h3>
+        <p>Pickled chaos. Sweet heat. Snack at your own risk.</p>
+        <div class="heat-bar"><div class="heat-fill" style="width:40%;"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Real Reviews From Questionable People</div>
+    <h2 class="section-title">People Are <em>Acting Different</em></h2>
+
+    <div class="testimonials">
+      <div class="quote">
+        <p>“Put it on a breakfast burrito and briefly became a better person.”</p>
+        <span>Breakfast Witness</span>
+      </div>
+
+      <div class="quote">
+        <p>“Ghost Rider hurt my feelings, but I respect it.”</p>
+        <span>Survivor, Barely</span>
+      </div>
+
+      <div class="quote">
+        <p>“The sandwich sauce made me rethink mayonnaise as a concept.”</p>
+        <span>Local Sandwich Freak</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Northwest Arkansas Heat</div>
+    <h2 class="section-title">Find Us In The <em>Wild</em></h2>
+    <p class="section-copy">
+      Fay-Town Hottie is built for markets, breweries, food trucks, backyard cookouts,
+      restaurant tables, and anywhere bland food needs to be publicly embarrassed.
+    </p>
+
+    <div class="local-grid">
+      <div class="local-card">
+        <h3>Market Drops</h3>
+        <p>Small batch releases, sampler packs, stickers, and limited sauce chaos around Northwest Arkansas.</p>
+      </div>
+
+      <div class="local-card">
+        <h3>Restaurant Bottles</h3>
+        <p>Food trucks, bars, delis, taco shops, burger joints, and wing spots can bring Fay-Town heat to the table.</p>
+      </div>
+
+      <div class="local-card">
+        <h3>Merch & Stickers</h3>
+        <p>Die-cut stickers, hats, shirts, koozies, aprons, patches, and local legend gear built for the cult.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <img class="footer-logo" src="asset/logo-horizontal.png" alt="Fay-Town Hottie logo">
+      <p>
+        Small batch Arkansas heat with handmade flavor, loud labels,
+        and the confidence of a sauce that knows it belongs on everything.
+      </p>
     </div>
 
+    <div class="footer-links">
+      <a href="the-sauce/">The Sauce</a>
+      <a href="the-story/">The Story</a>
+      <a href="the-supply/">The Supply</a>
+      <a href="the-supply/#cult">The Cult</a>
+      <a href="contact/">Contact</a>
+    </div>
   </div>
-
-</section>
+</footer>
 
 <div class="ticker">
   <div class="ticker-track">
-
     Burn First ⚡ Ask Questions Later ⚡ Arkansas Heat ⚡ No Weak Sauce ⚡ Small Batch ⚡ Big Flavor ⚡ Local Legend Energy ⚡
-
     Burn First ⚡ Ask Questions Later ⚡ Arkansas Heat ⚡ No Weak Sauce ⚡ Small Batch ⚡ Big Flavor ⚡ Local Legend Energy ⚡
-
     Burn First ⚡ Ask Questions Later ⚡ Arkansas Heat ⚡ No Weak Sauce ⚡ Small Batch ⚡ Big Flavor ⚡ Local Legend Energy ⚡
-
   </div>
 </div>
 
 <script>
-
 const phrases = [
   "Burn First.",
   "Arkansas Heat.",
@@ -476,11 +834,9 @@ const phrases = [
 ];
 
 const rotatingText = document.getElementById("rotatingText");
-
 let current = 0;
 
 setInterval(() => {
-
   current = (current + 1) % phrases.length;
 
   rotatingText.style.opacity = 0;
@@ -491,13 +847,11 @@ setInterval(() => {
     rotatingText.style.opacity = 1;
     rotatingText.style.transform = "translateY(0)";
   }, 180);
-
 }, 1400);
 
 rotatingText.style.transition = "all .18s ease";
-
 </script>
 
 </body>
 </html>
-<!-- ===== PART 2 END ===== -->
+<!-- ===== PART 3 END ===== -->
