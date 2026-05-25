@@ -5,6 +5,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Supply | Fay-Town Hottie</title>
+<link rel="stylesheet" href="../shared/nav.css">
 
 <style>
 :root{
@@ -15,14 +16,17 @@
   --orange:#f47820;
   --muted:#c8b98d;
 }
+
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
+
 body{
   background:#050403;
   color:var(--cream);
   font-family:Arial, Helvetica, sans-serif;
   overflow-x:hidden;
 }
+
 body::before{
   content:"";
   position:fixed;
@@ -35,33 +39,23 @@ body::before{
   background-size:auto, auto, 42px 42px, 42px 42px;
   z-index:-2;
 }
-a{text-decoration:none;color:inherit;}
-.wrap{width:min(1250px,calc(100% - 40px));margin:auto;}
 
-header{
+body::after{
+  content:"";
   position:fixed;
-  top:0;left:0;right:0;
-  z-index:50;
-  padding:18px 0;
-  background:linear-gradient(to bottom,rgba(5,4,3,.96),rgba(5,4,3,.55),transparent);
-  backdrop-filter:blur(12px);
+  inset:0;
+  background:rgba(0,0,0,.38);
+  z-index:-1;
+  pointer-events:none;
 }
-.nav{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:24px;
+
+a{text-decoration:none;color:inherit;}
+
+.wrap{
+  width:min(1250px,calc(100% - 40px));
+  margin:auto;
 }
-.logo{height:64px;display:block;}
-nav{
-  display:flex;
-  gap:30px;
-  font-size:13px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  font-weight:900;
-  color:#d8c79c;
-}
+
 .btn{
   display:inline-flex;
   align-items:center;
@@ -76,21 +70,34 @@ nav{
   font-size:12px;
   font-weight:900;
   box-shadow:0 14px 40px rgba(227,58,41,.38);
+  transition:.2s ease;
 }
-.btn.alt{background:transparent;box-shadow:none;}
+
+.btn:hover{
+  transform:translateY(-2px) rotate(-1deg);
+  box-shadow:0 20px 55px rgba(227,58,41,.55);
+}
+
+.btn.alt{
+  background:transparent;
+  color:var(--cream);
+  box-shadow:none;
+}
 
 .hero{
-  min-height:100vh;
+  min-height:94vh;
   display:grid;
   align-items:center;
   padding:145px 0 90px;
 }
+
 .hero-grid{
   display:grid;
   grid-template-columns:.9fr 1.1fr;
   gap:55px;
   align-items:center;
 }
+
 .eyebrow{
   color:var(--green);
   text-transform:uppercase;
@@ -99,6 +106,7 @@ nav{
   font-weight:900;
   margin-bottom:18px;
 }
+
 h1{
   font-size:clamp(64px,10vw,150px);
   line-height:.78;
@@ -107,6 +115,7 @@ h1{
   color:var(--red);
   text-shadow:4px 4px 0 #000,0 0 44px rgba(227,58,41,.35);
 }
+
 .hero p{
   max-width:650px;
   margin-top:28px;
@@ -115,6 +124,14 @@ h1{
   line-height:1.5;
   font-weight:800;
 }
+
+.hero-actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:34px;
+}
+
 .hero-img{
   width:100%;
   border-radius:26px;
@@ -128,6 +145,7 @@ h1{
   padding:24px 0;
   overflow:hidden;
 }
+
 .drop-strip div{
   white-space:nowrap;
   font-size:clamp(28px,4vw,62px);
@@ -136,12 +154,17 @@ h1{
   letter-spacing:-.05em;
   animation:scroll 18s linear infinite;
 }
+
 @keyframes scroll{
   from{transform:translateX(0);}
   to{transform:translateX(-50%);}
 }
 
-.section{padding:100px 0;}
+.section{
+  padding:92px 0;
+  border-top:1px solid rgba(242,224,181,.12);
+}
+
 .section-title{
   font-size:clamp(48px,7vw,105px);
   line-height:.86;
@@ -149,7 +172,12 @@ h1{
   letter-spacing:-.07em;
   text-shadow:4px 4px 0 #000;
 }
-.section-title em{color:var(--red);font-style:normal;}
+
+.section-title em{
+  color:var(--red);
+  font-style:normal;
+}
+
 .copy{
   max-width:760px;
   margin-top:22px;
@@ -158,12 +186,14 @@ h1{
   line-height:1.55;
   font-weight:800;
 }
+
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:22px;
   margin-top:44px;
 }
+
 .card{
   background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.015));
   border:2px solid rgba(242,224,181,.18);
@@ -173,23 +203,27 @@ h1{
   position:relative;
   overflow:hidden;
 }
+
 .card img{
   width:100%;
   border-radius:18px;
   margin-bottom:20px;
   box-shadow:0 18px 38px rgba(0,0,0,.45);
 }
+
 .card h3{
   font-size:30px;
   text-transform:uppercase;
   line-height:.95;
   margin-bottom:12px;
 }
+
 .card p{
   color:#d8c89c;
   line-height:1.5;
   font-weight:800;
 }
+
 .status{
   display:inline-block;
   margin-bottom:16px;
@@ -202,7 +236,7 @@ h1{
   text-transform:uppercase;
   letter-spacing:.1em;
 }
-.sold{background:#34241b;color:#d8c89c;border:1px solid rgba(242,224,181,.25);}
+
 .order-box{
   margin-top:46px;
   display:grid;
@@ -210,6 +244,7 @@ h1{
   gap:28px;
   align-items:stretch;
 }
+
 .order-panel{
   border-radius:30px;
   padding:34px;
@@ -217,28 +252,33 @@ h1{
   color:#120d09;
   box-shadow:0 28px 70px rgba(0,0,0,.5);
 }
+
 .order-panel h3{
   font-size:42px;
   text-transform:uppercase;
   line-height:.9;
 }
+
 .order-panel p{
   margin-top:16px;
   color:#36291e;
   font-weight:800;
   line-height:1.5;
 }
+
 .dark-panel{
   border-radius:30px;
   padding:34px;
   background:#0b0806;
   border:2px solid rgba(242,224,181,.2);
 }
+
 .list{
   margin-top:22px;
   display:grid;
   gap:14px;
 }
+
 .list div{
   display:flex;
   justify-content:space-between;
@@ -249,7 +289,48 @@ h1{
   border:1px solid rgba(242,224,181,.14);
   font-weight:900;
 }
+
 .list span{color:var(--green);}
+
+.order-form{
+  display:grid;
+  gap:14px;
+  margin-top:24px;
+}
+
+.order-form label{
+  color:#130d08;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:11px;
+  font-weight:950;
+}
+
+.order-form input,
+.order-form select,
+.order-form textarea{
+  width:100%;
+  border:2px solid rgba(19,13,8,.22);
+  background:#fff7dc;
+  color:#130d08;
+  border-radius:14px;
+  padding:14px;
+  font-size:15px;
+  font-weight:800;
+  outline:none;
+}
+
+.order-form textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+.order-form input:focus,
+.order-form select:focus,
+.order-form textarea:focus{
+  border-color:var(--red);
+  box-shadow:0 0 0 4px rgba(227,58,41,.16);
+}
 
 .wide-img{
   width:100%;
@@ -258,30 +339,67 @@ h1{
   box-shadow:0 30px 80px rgba(0,0,0,.6);
 }
 
-footer{
-  padding:50px 0 70px;
+.footer{
+  padding:58px 0 86px;
   text-align:center;
   color:#bfae86;
   text-transform:uppercase;
   letter-spacing:.14em;
   font-size:12px;
   font-weight:900;
+  border-top:1px solid rgba(242,224,181,.18);
 }
+<!-- ===== PART 1 END ===== -->
+
+  <!-- ===== PART 2 START: RESPONSIVE CSS + HEADER + HERO + DROP ===== -->
 @media(max-width:900px){
-  nav{display:none;}
-  .hero-grid,.order-box{grid-template-columns:1fr;}
-  .grid{grid-template-columns:1fr 1fr;}
+  .hero{
+    min-height:auto;
+    padding:118px 0 58px;
+  }
+
+  .hero-grid,
+  .order-box{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
 }
+
 @media(max-width:560px){
-  .grid{grid-template-columns:1fr;}
-  .logo{height:50px;}
-  .btn{width:100%;}
+  .wrap{
+    width:min(1250px,calc(100% - 28px));
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero-actions{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+    padding:13px 16px;
+    font-size:10px;
+  }
+
+  .section{
+    padding:62px 0;
+  }
+
+  .order-panel,
+  .dark-panel{
+    padding:24px;
+  }
 }
 </style>
 </head>
-<!-- ===== PART 1 END ===== -->
 
-  <!-- ===== PART 2 START: HEADER + DROP + ORDER ===== -->
 <body>
 
 <header>
@@ -298,7 +416,7 @@ footer{
       <a href="../contact/">Contact</a>
     </nav>
 
-    <a class="btn" href="mailto:orders@faytownhottie.com?subject=Fay-Town%20Hottie%20Supply%20Request">Get Sauce</a>
+    <a class="btn" href="#order">Get Sauce</a>
   </div>
 </header>
 
@@ -307,15 +425,16 @@ footer{
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Current Drop • Limited Run</div>
+      <div class="eyebrow">Current Drop • Limited Run • Small Batch Release</div>
       <h1>The Supply</h1>
       <p>
-        Small batch releases, sauce drops, sampler packs, stickers, merch,
-        and whatever else comes out of the Fay-Town heat lab this week.
+        The underground order page for sauce drops, sampler packs, spicy jars,
+        sticker add-ons, merch bundles, and whatever else comes out of the Fay-Town heat lab this week.
       </p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;">
-        <a class="btn" href="mailto:orders@faytownhottie.com?subject=Fay-Town%20Hottie%20Order%20Request">Request The Drop</a>
-        <a class="btn alt" href="#cult">Enter The Cult</a>
+
+      <div class="hero-actions">
+        <a class="btn" href="#order">Request The Drop</a>
+        <a class="btn alt" href="#current-drop">View Current Drop</a>
       </div>
     </div>
 
@@ -325,107 +444,173 @@ footer{
 
 <div class="drop-strip">
   <div>
-    Current Drop • Limited Run • Small Batch Release • Available This Week •
-    Current Drop • Limited Run • Small Batch Release • Available This Week •
+    Current Drop • Limited Run • Small Batch Release • Available This Week • Local Pickup • NWA Delivery •
+    Current Drop • Limited Run • Small Batch Release • Available This Week • Local Pickup • NWA Delivery •
   </div>
 </div>
 
-<section class="section">
+<section class="section" id="current-drop">
   <div class="wrap">
     <div class="eyebrow">Available This Week</div>
     <h2 class="section-title">Small Batch <em>Release</em></h2>
     <p class="copy">
       These are not “products available.” These are drops. When the batch is gone,
-      it is gone until the next cook.
+      it is gone until the next cook. Request what you want and get on the list.
     </p>
 
     <div class="grid">
       <article class="card">
-        <span class="status">Current Drop</span>
+        <span class="status">Best Drop</span>
+        <img src="../asset/market-box.png" alt="Fay-Town Hottie starter pack">
+        <h3>5-Sauce Starter Pack</h3>
+        <p>The full hot sauce lineup. Five bottles, one bad decision, zero weak sauce.</p>
+      </article>
+
+      <article class="card">
+        <span class="status">Signature</span>
         <img src="../asset/bottle-porch-fire.png" alt="Porch Fire">
         <h3>Porch Fire</h3>
-        <p>The signature bottle. Balanced heat, bold flavor, all day every day.</p>
+        <p>The balanced signature bottle. Sweet heat, bold flavor, everyday chaos.</p>
       </article>
 
       <article class="card">
         <span class="status">Limited Run</span>
         <img src="../asset/bottle-ghost-rider.png" alt="Ghost Rider">
         <h3>Ghost Rider</h3>
-        <p>Extreme heat. Not responsible for tears. Built for the brave.</p>
+        <p>Extreme heat. Not responsible for tears. Built for people who ignore warnings.</p>
       </article>
 
       <article class="card">
-        <span class="status">Current Drop</span>
+        <span class="status">Daily Driver</span>
         <img src="../asset/bottle-ayteches.png" alt="Red Habanero">
         <h3>Red Habanero</h3>
-        <p>Daily driver heat with deep red flavor and grill-night energy.</p>
+        <p>Deep red habanero flavor for tacos, eggs, burgers, wings, and grill nights.</p>
       </article>
 
       <article class="card">
-        <span class="status">Small Batch</span>
+        <span class="status">Cult Classic</span>
         <img src="../asset/bottle-sandwich-sauce.png" alt="Hot Sandwich Sauce">
         <h3>Sandwich Sauce</h3>
-        <p>Zesty, tangy, perfect for burgers, sandwiches, fries, and chaos.</p>
+        <p>Zesty, tangy, built for burgers, sandwiches, fries, and late-night decisions.</p>
       </article>
 
       <article class="card">
         <span class="status">Restaurant Favorite</span>
         <img src="../asset/bottle-white-sauce.png" alt="White Sauce">
         <h3>White Sauce</h3>
-        <p>Garlic habanero. Creamy, smoky, bold, addictive.</p>
+        <p>Garlic habanero. Creamy, smoky, bold, addictive, and built for menus.</p>
       </article>
 
       <article class="card">
         <span class="status">Market Jar</span>
         <img src="../asset/bottle-carrot.png" alt="Spicy Sweet Carrots">
         <h3>Spicy Carrots</h3>
-        <p>Pickled chaos in a jar. Snack at your own risk.</p>
+        <p>Pickled chaos in a jar. Sweet heat crunch. Snack at your own risk.</p>
       </article>
-    </div>
 
-    <div class="order-box">
-      <div class="order-panel">
-        <h3>Get On The Supply List</h3>
-        <p>
-          Send an order request with the sauces you want, quantities,
-          and whether you want pickup, local delivery, or market handoff.
-        </p>
-        <a class="btn" style="margin-top:24px;color:white;" href="mailto:orders@faytownhottie.com?subject=Fay-Town%20Hottie%20Order%20Request&body=Hey%20Fay-Town%20Hottie%2C%0A%0AI%20want%20to%20order%3A%0A%0ASauce%2Fdrop%3A%0AQuantity%3A%0APickup%20or%20delivery%3A%0AName%3A%0APhone%3A%0A">
-          Start Order Request
-        </a>
-      </div>
+      <article class="card">
+        <span class="status">Add-On</span>
+        <img src="../asset/stickers.png" alt="Fay-Town Hottie sticker pack">
+        <h3>Sticker Pack</h3>
+        <p>Die-cut sauce cult stickers for coolers, laptops, bumpers, toolboxes, and bad ideas.</p>
+      </article>
 
-      <div class="dark-panel">
-        <div class="eyebrow">Drop Menu</div>
-        <h3 class="section-title" style="font-size:48px;">This Week</h3>
-        <div class="list">
-          <div>Single Bottle <span>Request</span></div>
-          <div>5-Sauce Sampler Pack <span>Best Drop</span></div>
-          <div>Sticker Pack Add-On <span>Collectible</span></div>
-          <div>Merch Bundle <span>Limited</span></div>
-          <div>Wholesale / Restaurant Inquiry <span>Ask</span></div>
-        </div>
-      </div>
+      <article class="card">
+        <span class="status">Merch Drop</span>
+        <img src="../asset/merch.png" alt="Fay-Town Hottie merch">
+        <h3>Merch Bundle</h3>
+        <p>Hats, shirts, koozies, aprons, patches, and local-legend gear.</p>
+      </article>
     </div>
   </div>
 </section>
 <!-- ===== PART 2 END ===== -->
 
-  <!-- ===== PART 3 START: CULT + MERCH + FOOTER ===== -->
+  <!-- ===== PART 3 START: ORDER FORM + CULT + MERCH + FOOTER ===== -->
+<section class="section" id="order">
+  <div class="wrap">
+    <div class="eyebrow">Request The Drop</div>
+    <h2 class="section-title">Get On The <em>Supply List</em></h2>
+    <p class="copy">
+      Fill out the request below. Replace the form action with your Formspree URL when ready.
+      Until then, the page still looks and feels like a real ordering flow.
+    </p>
+
+    <div class="order-box">
+      <div class="order-panel">
+        <h3>Order Request</h3>
+        <p>
+          Request sauces, sampler packs, jars, merch, sticker add-ons, or wholesale.
+          Local pickup and NWA delivery can be confirmed after the request comes through.
+        </p>
+
+        <form class="order-form" action="#" method="POST">
+          <!-- Replace # with your Formspree URL later -->
+
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required>
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@email.com" required>
+          </div>
+
+          <div>
+            <label for="request">What Are You After?</label>
+            <select id="request" name="request">
+              <option>5-Sauce Starter Pack</option>
+              <option>Single Bottles</option>
+              <option>Spicy Sweet Carrots</option>
+              <option>Sticker Pack</option>
+              <option>Merch Bundle</option>
+              <option>Wholesale / Restaurant Inquiry</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="details">Details</label>
+            <textarea id="details" name="details" placeholder="Tell us what sauces, quantities, pickup/delivery preference, or wholesale info you need..." required></textarea>
+          </div>
+
+          <button class="btn" type="submit">Send The Request</button>
+        </form>
+      </div>
+
+      <div class="dark-panel">
+        <div class="eyebrow">Drop Menu</div>
+        <h3 class="section-title" style="font-size:48px;">This Week</h3>
+
+        <div class="list">
+          <div>5-Sauce Starter Pack <span>Best Drop</span></div>
+          <div>Single Bottle Request <span>Custom</span></div>
+          <div>Spicy Sweet Carrots <span>Market Jar</span></div>
+          <div>Sticker Pack Add-On <span>Collectible</span></div>
+          <div>Merch Bundle <span>Limited</span></div>
+          <div>Wholesale / Restaurant Inquiry <span>Ask</span></div>
+        </div>
+
+        <a class="btn alt" style="margin-top:24px;" href="../the-sauce/">Meet The Sauces</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="cult" class="section">
   <div class="wrap">
     <div class="eyebrow">The Cult</div>
     <h2 class="section-title">Collect The <em>Chaos</em></h2>
     <p class="copy">
       Stickers, fake sponsor posters, market drops, sauce chaos, grill smoke,
-      local events, and the stuff that makes Fay-Town Hottie feel like a local legend.
+      local events, and the stuff that makes Fay-Town Hottie feel like a real local legend.
     </p>
 
     <div class="grid">
       <article class="card">
         <img src="../asset/stickers.png" alt="Fay-Town Hottie sticker pack">
         <h3>Sticker Packs</h3>
-        <p>Die-cut, skate-style sauce stickers built for laptops, coolers, toolboxes, bumpers, and bad decisions.</p>
+        <p>Skate-style die-cut sauce stickers built for laptops, coolers, toolboxes, bumpers, and bad decisions.</p>
       </article>
 
       <article class="card">
@@ -439,6 +624,39 @@ footer{
         <h3>Merch Universe</h3>
         <p>Hats, shirts, aprons, koozies, patches, and the gear that makes the brand feel bigger than sauce.</p>
       </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Restaurant / Wholesale</div>
+    <h2 class="section-title">Put Fay-Town <em>On The Table</em></h2>
+    <p class="copy">
+      Food trucks, bars, delis, taco shops, burger joints, wing spots, and local shops can request
+      restaurant bottles, small wholesale batches, or collab drops.
+    </p>
+
+    <div class="order-box">
+      <div class="dark-panel">
+        <div class="eyebrow">Built For</div>
+        <div class="list">
+          <div>Restaurants <span>Table Sauce</span></div>
+          <div>Food Trucks <span>Menu Collabs</span></div>
+          <div>Bars & Breweries <span>Pop-Ups</span></div>
+          <div>Markets <span>Small Batch</span></div>
+          <div>Retail Shelves <span>Starter Cases</span></div>
+        </div>
+      </div>
+
+      <div class="order-panel">
+        <h3>Want It In Your Spot?</h3>
+        <p>
+          Use the supply request form and choose wholesale / restaurant inquiry.
+          Include your business name, location, and what kind of heat you want on the menu.
+        </p>
+        <a class="btn" style="margin-top:24px;color:white;" href="#order">Start Wholesale Request</a>
+      </div>
     </div>
   </div>
 </section>
@@ -471,11 +689,9 @@ footer{
         <h3>Ask About Merch</h3>
         <p>
           Want a hat, shirt, apron, koozie, sticker pack, or full chaos bundle?
-          Send a merch request and get on the drop list.
+          Select merch in the order form and get on the drop list.
         </p>
-        <a class="btn" style="margin-top:24px;color:white;" href="mailto:orders@faytownhottie.com?subject=Fay-Town%20Hottie%20Merch%20Request&body=Hey%20Fay-Town%20Hottie%2C%0A%0AI%20want%20merch%3A%0A%0AItem%3A%0ASize%3A%0AQuantity%3A%0AName%3A%0APhone%3A%0A">
-          Request Merch
-        </a>
+        <a class="btn" style="margin-top:24px;color:white;" href="#order">Request Merch</a>
       </div>
     </div>
   </div>
@@ -483,8 +699,8 @@ footer{
 
 </main>
 
-<footer>
-  Fay-Town Hottie • The Supply • Limited Drops • Handmade In Fay-Town
+<footer class="footer">
+  Fay-Town Hottie • The Supply • Limited Drops • Handmade In Fay-Town • No Weak Sauce
 </footer>
 
 </body>
