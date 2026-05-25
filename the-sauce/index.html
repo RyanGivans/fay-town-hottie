@@ -4,7 +4,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>The Sauce | Fay-Town Hottie</title>
+<link rel="stylesheet" href="../shared/nav.css">
 
 <style>
 :root{
@@ -13,61 +15,49 @@
   --red:#e33a29;
   --green:#8ab83e;
   --orange:#f47820;
+  --muted:#c8b98d;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
+
 html{scroll-behavior:smooth;}
+
 body{
   background:#050403;
   color:var(--cream);
   font-family:Arial, Helvetica, sans-serif;
   overflow-x:hidden;
 }
+
 a{text-decoration:none;color:inherit;}
-.wrap{width:min(1250px,calc(100% - 40px));margin:auto;}
+
+.wrap{
+  width:min(1250px,calc(100% - 40px));
+  margin:auto;
+}
 
 body::before{
   content:"";
   position:fixed;
   inset:0;
   background:
+    radial-gradient(circle at 15% 20%, rgba(227,58,41,.18), transparent 30%),
+    radial-gradient(circle at 85% 25%, rgba(138,184,62,.14), transparent 28%),
     linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size:42px 42px;
+  background-size:auto, auto, 42px 42px, 42px 42px;
   z-index:-2;
 }
+
 body::after{
   content:"";
   position:fixed;
   inset:0;
   background:rgba(0,0,0,.38);
   z-index:-1;
+  pointer-events:none;
 }
 
-header{
-  position:fixed;
-  top:0;left:0;right:0;
-  z-index:50;
-  padding:16px 0;
-  background:linear-gradient(to bottom,rgba(5,4,3,.96),rgba(5,4,3,.55),transparent);
-  backdrop-filter:blur(12px);
-}
-.nav{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:24px;
-}
-.logo{height:58px;display:block;}
-nav{
-  display:flex;
-  gap:30px;
-  font-size:13px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  font-weight:900;
-  color:#d8c79c;
-}
 .btn{
   display:inline-flex;
   align-items:center;
@@ -82,18 +72,31 @@ nav{
   font-size:12px;
   font-weight:900;
   box-shadow:0 14px 40px rgba(227,58,41,.38);
+  transition:.2s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px) rotate(-1deg);
+  box-shadow:0 20px 55px rgba(227,58,41,.55);
+}
+
+.btn.alt{
+  background:transparent;
+  color:var(--cream);
+  box-shadow:none;
 }
 
 .intro{
-  min-height:58vh;
+  min-height:68vh;
   display:grid;
   place-items:center;
-  padding:125px 0 55px;
+  padding:145px 0 70px;
   text-align:center;
   background:
     radial-gradient(circle at 20% 30%,rgba(227,58,41,.32),transparent 32%),
     radial-gradient(circle at 80% 20%,rgba(138,184,62,.18),transparent 30%);
 }
+
 .eyebrow{
   color:var(--green);
   text-transform:uppercase;
@@ -102,6 +105,7 @@ nav{
   font-weight:900;
   margin-bottom:14px;
 }
+
 h1{
   font-size:clamp(58px,9vw,130px);
   line-height:.8;
@@ -110,8 +114,9 @@ h1{
   color:var(--red);
   text-shadow:4px 4px 0 #000,0 0 44px rgba(227,58,41,.35);
 }
+
 .intro p{
-  max-width:760px;
+  max-width:790px;
   margin:24px auto 0;
   color:#e1d3aa;
   font-size:clamp(18px,1.8vw,24px);
@@ -119,14 +124,52 @@ h1{
   font-weight:800;
 }
 
+.intro-actions{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.quick-lineup{
+  padding:26px 0;
+  background:var(--red);
+  border-block:4px solid var(--cream);
+  position:sticky;
+  top:86px;
+  z-index:20;
+}
+
+.lineup-links{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding-bottom:2px;
+}
+
+.lineup-links a{
+  flex:0 0 auto;
+  padding:10px 13px;
+  border-radius:999px;
+  border:1px solid rgba(242,224,181,.55);
+  color:white;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:10px;
+  font-weight:950;
+  background:rgba(0,0,0,.16);
+}
+
 .sauce{
   display:grid;
   align-items:center;
-  padding:70px 0;
+  padding:76px 0;
   position:relative;
   overflow:hidden;
   border-top:1px solid rgba(242,224,181,.12);
 }
+
 .sauce::before{
   content:"";
   position:absolute;
@@ -134,12 +177,14 @@ h1{
   opacity:.9;
   z-index:-1;
 }
+
 .sauce-grid{
   display:grid;
   grid-template-columns:.88fr 1.12fr;
   gap:42px;
   align-items:center;
 }
+
 .sauce h2{
   font-size:clamp(44px,6vw,86px);
   line-height:.86;
@@ -147,6 +192,7 @@ h1{
   letter-spacing:-.07em;
   text-shadow:4px 4px 0 #000;
 }
+
 .sauce h2 span{
   display:block;
   font-size:.36em;
@@ -154,6 +200,7 @@ h1{
   color:var(--cream);
   margin-bottom:10px;
 }
+
 .sauce-copy{
   margin-top:18px;
   max-width:560px;
@@ -162,12 +209,14 @@ h1{
   line-height:1.48;
   font-weight:800;
 }
+
 .tags{
   display:flex;
   flex-wrap:wrap;
   gap:10px;
   margin-top:20px;
 }
+
 .tag{
   padding:9px 11px;
   border:1px solid rgba(242,224,181,.32);
@@ -177,17 +226,57 @@ h1{
   text-transform:uppercase;
   font-weight:900;
 }
+
 .heat{
   margin-top:20px;
   font-size:26px;
   letter-spacing:.1em;
 }
+
+.profile{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:24px;
+}
+
+.profile-card{
+  padding:14px;
+  border-radius:16px;
+  background:rgba(0,0,0,.3);
+  border:1px solid rgba(242,224,181,.14);
+}
+
+.profile-card strong{
+  display:block;
+  color:var(--green);
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:10px;
+  margin-bottom:7px;
+}
+
+.profile-card span{
+  color:#e4d3a6;
+  font-size:14px;
+  line-height:1.35;
+  font-weight:800;
+}
+
+.sauce-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:26px;
+}
+
 .visual{
   display:grid;
   grid-template-columns:.7fr 1fr;
   gap:14px;
   align-items:center;
 }
+
 .visual img{
   width:100%;
   max-height:560px;
@@ -196,36 +285,93 @@ h1{
   border-radius:18px;
   box-shadow:0 24px 58px rgba(0,0,0,.62);
 }
+
 .poster{transform:rotate(-1.5deg);}
 .bottle{transform:rotate(1.5deg);}
 
 .ghost::before{
-  background:radial-gradient(circle at 70% 45%,rgba(138,184,62,.18),transparent 35%),
-  radial-gradient(circle at 20% 30%,rgba(227,58,41,.24),transparent 32%);
-}
-.redhab::before{
-  background:radial-gradient(circle at 70% 40%,rgba(227,58,41,.38),transparent 38%),
-  radial-gradient(circle at 30% 60%,rgba(244,120,32,.22),transparent 30%);
-}
-.porch::before{
-  background:radial-gradient(circle at 65% 40%,rgba(244,120,32,.28),transparent 38%),
-  radial-gradient(circle at 25% 50%,rgba(138,184,62,.13),transparent 30%);
-}
-.sandwich::before{
-  background:radial-gradient(circle at 65% 42%,rgba(138,184,62,.24),transparent 38%),
-  radial-gradient(circle at 30% 55%,rgba(202,156,43,.18),transparent 30%);
-}
-.white::before{
-  background:radial-gradient(circle at 68% 42%,rgba(242,224,181,.23),transparent 40%),
-  radial-gradient(circle at 25% 45%,rgba(138,184,62,.18),transparent 32%);
-}
-.carrot::before{
-  background:radial-gradient(circle at 68% 42%,rgba(244,120,32,.28),transparent 40%),
-  radial-gradient(circle at 25% 45%,rgba(138,184,62,.18),transparent 32%);
+  background:
+    radial-gradient(circle at 70% 45%,rgba(138,184,62,.18),transparent 35%),
+    radial-gradient(circle at 20% 30%,rgba(227,58,41,.24),transparent 32%);
 }
 
-footer{
-  padding:42px 0 55px;
+.redhab::before{
+  background:
+    radial-gradient(circle at 70% 40%,rgba(227,58,41,.38),transparent 38%),
+    radial-gradient(circle at 30% 60%,rgba(244,120,32,.22),transparent 30%);
+}
+
+.porch::before{
+  background:
+    radial-gradient(circle at 65% 40%,rgba(244,120,32,.28),transparent 38%),
+    radial-gradient(circle at 25% 50%,rgba(138,184,62,.13),transparent 30%);
+}
+
+.sandwich::before{
+  background:
+    radial-gradient(circle at 65% 42%,rgba(138,184,62,.24),transparent 38%),
+    radial-gradient(circle at 30% 55%,rgba(202,156,43,.18),transparent 30%);
+}
+
+.white::before{
+  background:
+    radial-gradient(circle at 68% 42%,rgba(242,224,181,.23),transparent 40%),
+    radial-gradient(circle at 25% 45%,rgba(138,184,62,.18),transparent 32%);
+}
+
+.carrot::before{
+  background:
+    radial-gradient(circle at 68% 42%,rgba(244,120,32,.28),transparent 40%),
+    radial-gradient(circle at 25% 45%,rgba(138,184,62,.18),transparent 32%);
+}
+
+.bundle{
+  padding:82px 0;
+  background:
+    radial-gradient(circle at 70% 40%, rgba(227,58,41,.22), transparent 34%),
+    rgba(0,0,0,.18);
+  border-top:4px solid var(--cream);
+}
+
+.bundle-grid{
+  display:grid;
+  grid-template-columns:1fr .9fr;
+  gap:38px;
+  align-items:center;
+}
+
+.bundle h2{
+  font-size:clamp(46px,7vw,102px);
+  line-height:.86;
+  letter-spacing:-.07em;
+  text-transform:uppercase;
+  text-shadow:4px 4px 0 #000;
+}
+
+.bundle h2 em{
+  color:var(--red);
+  font-style:normal;
+}
+
+.bundle p{
+  max-width:720px;
+  margin-top:22px;
+  color:#d9c99e;
+  font-size:20px;
+  line-height:1.55;
+  font-weight:800;
+}
+
+.bundle img{
+  width:100%;
+  border-radius:28px;
+  box-shadow:0 30px 80px rgba(0,0,0,.62);
+  transform:rotate(1.5deg);
+}
+
+.footer{
+  padding:58px 0 82px;
+  border-top:1px solid rgba(242,224,181,.18);
   text-align:center;
   color:#bfae86;
   text-transform:uppercase;
@@ -233,41 +379,80 @@ footer{
   font-size:12px;
   font-weight:900;
 }
+<!-- ===== PART 1 END ===== -->
+
+  <!-- ===== PART 2 START: RESPONSIVE CSS + HEADER + INTRO + FIRST SAUCES ===== -->
+@media(max-width:1100px){
+  .quick-lineup{
+    top:auto;
+    position:relative;
+  }
+}
 
 @media(max-width:900px){
-  nav{
-    position:fixed;
-    left:0;
-    right:0;
-    bottom:0;
-    z-index:200;
-    display:flex;
-    justify-content:flex-start;
-    gap:18px;
-    padding:14px 16px;
-    background:rgba(5,4,3,.97);
-    border-top:2px solid var(--cream);
-    font-size:10px;
-    overflow-x:auto;
+  .intro{
+    min-height:56vh;
+    padding:115px 0 54px;
   }
-  body{padding-bottom:76px;}
-  .sauce{padding:58px 0;}
-  .sauce-grid{grid-template-columns:1fr;gap:28px;}
-  .visual{grid-template-columns:1fr 1fr;}
-  .visual img{max-height:none;}
+
+  .sauce{
+    padding:58px 0;
+  }
+
+  .sauce-grid,
+  .bundle-grid{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+
+  .visual{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .visual img{
+    max-height:none;
+  }
+
+  .profile{
+    grid-template-columns:1fr;
+  }
 }
+
 @media(max-width:560px){
-  .logo{height:50px;}
-  .visual{grid-template-columns:1fr;}
-  .btn{padding:13px 16px;}
-  .intro{min-height:50vh;padding-top:110px;}
-  .sauce{padding:48px 0;}
+  .wrap{
+    width:min(1250px,calc(100% - 28px));
+  }
+
+  .visual{
+    grid-template-columns:1fr;
+  }
+
+  .btn{
+    padding:13px 16px;
+    font-size:10px;
+  }
+
+  .intro{
+    min-height:50vh;
+    padding-top:104px;
+  }
+
+  .sauce{
+    padding:48px 0;
+  }
+
+  .intro-actions,
+  .sauce-actions{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+  }
 }
 </style>
 </head>
-<!-- ===== PART 1 END ===== -->
 
-  <!-- ===== PART 2 START: HEADER + INTRO + FIRST SAUCES ===== -->
 <body>
 
 <header>
@@ -295,13 +480,29 @@ footer{
     <div class="eyebrow">The Flavor Universe</div>
     <h1>The Sauce</h1>
     <p>
-      This is not a product grid. This is the lineup — each bottle with its own attitude,
-      heat level, flavor lane, and bad-decision energy.
+      This is not a product grid. This is the lineup — each bottle has its own attitude,
+      heat level, flavor lane, poster, label, and bad-decision energy.
     </p>
+
+    <div class="intro-actions">
+      <a class="btn" href="../the-supply/">Request The Current Drop</a>
+      <a class="btn alt" href="#ghost">Choose Your Damage</a>
+    </div>
   </div>
 </section>
 
-<section class="sauce ghost">
+<section class="quick-lineup">
+  <div class="wrap lineup-links">
+    <a href="#ghost">Ghost Rider</a>
+    <a href="#redhab">Red Habanero</a>
+    <a href="#porch">Porch Fire</a>
+    <a href="#sandwich">Sandwich Sauce</a>
+    <a href="#white">White Sauce</a>
+    <a href="#carrot">Spicy Carrots</a>
+  </div>
+</section>
+
+<section class="sauce ghost" id="ghost">
   <div class="wrap sauce-grid">
     <div>
       <div class="eyebrow">Extreme Heat</div>
@@ -310,13 +511,27 @@ footer{
         The insane one. Black smoke, neon lightning, ghost pepper fire,
         and a burn that does not care about your plans.
       </p>
+
       <div class="tags">
         <div class="tag">Not Responsible For Tears</div>
         <div class="tag">Lightning Heat</div>
         <div class="tag">Ghost Pepper</div>
       </div>
+
       <div class="heat">🔥🔥🔥🔥🔥</div>
+
+      <div class="profile">
+        <div class="profile-card"><strong>Best On</strong><span>Wings, chili, dares, questionable nights</span></div>
+        <div class="profile-card"><strong>Flavor</strong><span>Smoky pepper, sharp burn, chaos finish</span></div>
+        <div class="profile-card"><strong>Warning</strong><span>Respect the bottle or become content</span></div>
+      </div>
+
+      <div class="sauce-actions">
+        <a class="btn" href="../the-supply/">Order Ghost Rider</a>
+        <a class="btn alt" href="#redhab">Next Bottle</a>
+      </div>
     </div>
+
     <div class="visual">
       <img class="poster" src="../asset/flat-ghost-rider.png" alt="Ghost Rider label">
       <img class="bottle" src="../asset/bottle-ghost-rider.png" alt="Ghost Rider bottle">
@@ -324,7 +539,7 @@ footer{
   </div>
 </section>
 
-<section class="sauce redhab">
+<section class="sauce redhab" id="redhab">
   <div class="wrap sauce-grid">
     <div>
       <div class="eyebrow">Daily Driver Heat</div>
@@ -333,21 +548,37 @@ footer{
         The flavorful daily-driver. Deep red habanero heat built for tacos,
         grill nights, burgers, wings, and anything that needs a little danger.
       </p>
+
       <div class="tags">
         <div class="tag">Flavor Before Pain</div>
         <div class="tag">Made Hot In Fay-Town</div>
         <div class="tag">Taco Ready</div>
       </div>
+
       <div class="heat">🔥🔥🔥🔥</div>
+
+      <div class="profile">
+        <div class="profile-card"><strong>Best On</strong><span>Tacos, eggs, burgers, grilled chicken</span></div>
+        <div class="profile-card"><strong>Flavor</strong><span>Red pepper heat, bright tang, smoky finish</span></div>
+        <div class="profile-card"><strong>Personality</strong><span>The bottle you reach for every day</span></div>
+      </div>
+
+      <div class="sauce-actions">
+        <a class="btn" href="../the-supply/">Order Red Habanero</a>
+        <a class="btn alt" href="#porch">Next Bottle</a>
+      </div>
     </div>
+
     <div class="visual">
       <img class="poster" src="../asset/flat-ayteches.png" alt="Ayteches Red Habanero label">
       <img class="bottle" src="../asset/bottle-ayteches.png" alt="Ayteches Red Habanero bottle">
     </div>
   </div>
 </section>
+<!-- ===== PART 2 END ===== -->
 
-<section class="sauce porch">
+  <!-- ===== PART 3 START: REMAINING SAUCES + BUNDLE + FOOTER ===== -->
+<section class="sauce porch" id="porch">
   <div class="wrap sauce-grid">
     <div>
       <div class="eyebrow">The Signature Sauce</div>
@@ -356,23 +587,35 @@ footer{
         The balanced one. Sweet heat, bold flavor, backyard porch energy,
         and enough personality to become the bottle people reach for first.
       </p>
+
       <div class="tags">
         <div class="tag">Great On Everything</div>
         <div class="tag">Balanced Heat</div>
         <div class="tag">No Regrets</div>
       </div>
+
       <div class="heat">🔥🔥</div>
+
+      <div class="profile">
+        <div class="profile-card"><strong>Best On</strong><span>Pizza, breakfast, burgers, BBQ, fries</span></div>
+        <div class="profile-card"><strong>Flavor</strong><span>Sweet heat, savory pepper, porch smoke</span></div>
+        <div class="profile-card"><strong>Role</strong><span>The signature everyday crowd-pleaser</span></div>
+      </div>
+
+      <div class="sauce-actions">
+        <a class="btn" href="../the-supply/">Order Porch Fire</a>
+        <a class="btn alt" href="#sandwich">Next Bottle</a>
+      </div>
     </div>
+
     <div class="visual">
       <img class="poster" src="../asset/flat-porch-fire.png" alt="Porch Fire label">
       <img class="bottle" src="../asset/bottle-porch-fire.png" alt="Porch Fire bottle">
     </div>
   </div>
 </section>
-<!-- ===== PART 2 END ===== -->
 
-  <!-- ===== PART 3 START: REMAINING SAUCES + FOOTER ===== -->
-<section class="sauce sandwich">
+<section class="sauce sandwich" id="sandwich">
   <div class="wrap sauce-grid">
     <div>
       <div class="eyebrow">The Cult Classic</div>
@@ -381,13 +624,27 @@ footer{
         Built for burgers, sandwiches, fries, late-night food truck runs,
         and anyone who understands that sauce can absolutely be a personality trait.
       </p>
+
       <div class="tags">
         <div class="tag">Sandwich Violence</div>
         <div class="tag">Put It On Everything</div>
         <div class="tag">Deli Punk</div>
       </div>
+
       <div class="heat">🔥🔥🔥</div>
+
+      <div class="profile">
+        <div class="profile-card"><strong>Best On</strong><span>Burgers, subs, fries, chicken sandwiches</span></div>
+        <div class="profile-card"><strong>Flavor</strong><span>Tangy, savory, spicy, deli-shop chaos</span></div>
+        <div class="profile-card"><strong>Energy</strong><span>Old diner sign meets punk food truck</span></div>
+      </div>
+
+      <div class="sauce-actions">
+        <a class="btn" href="../the-supply/">Order Sandwich Sauce</a>
+        <a class="btn alt" href="#white">Next Bottle</a>
+      </div>
     </div>
+
     <div class="visual">
       <img class="poster" src="../asset/flat-sandwich-sauce.png" alt="Hot Sandwich Sauce label">
       <img class="bottle" src="../asset/bottle-sandwich-sauce.png" alt="Hot Sandwich Sauce bottle">
@@ -395,7 +652,7 @@ footer{
   </div>
 </section>
 
-<section class="sauce white">
+<section class="sauce white" id="white">
   <div class="wrap sauce-grid">
     <div>
       <div class="eyebrow">Restaurant Favorite</div>
@@ -404,13 +661,27 @@ footer{
         Creamy, smoky, garlicky heat with green pepper bite. This is the one restaurants
         would put on wings, tacos, burgers, fries, and never take off the menu.
       </p>
+
       <div class="tags">
         <div class="tag">Smoky Creamy Addictive</div>
         <div class="tag">Garlic Habanero</div>
         <div class="tag">Heat You Can Taste</div>
       </div>
+
       <div class="heat">🔥🔥🔥</div>
+
+      <div class="profile">
+        <div class="profile-card"><strong>Best On</strong><span>Wings, tacos, fries, wraps, grilled chicken</span></div>
+        <div class="profile-card"><strong>Flavor</strong><span>Creamy garlic, smoky ranch heat, green bite</span></div>
+        <div class="profile-card"><strong>Move</strong><span>The restaurant bottle people ask for by name</span></div>
+      </div>
+
+      <div class="sauce-actions">
+        <a class="btn" href="../the-supply/">Order White Sauce</a>
+        <a class="btn alt" href="#carrot">Next Bottle</a>
+      </div>
     </div>
+
     <div class="visual">
       <img class="poster" src="../asset/flat-white-sauce.png" alt="White Sauce label">
       <img class="bottle" src="../asset/bottle-white-sauce.png" alt="White Sauce bottle">
@@ -418,7 +689,7 @@ footer{
   </div>
 </section>
 
-<section class="sauce carrot">
+<section class="sauce carrot" id="carrot">
   <div class="wrap sauce-grid">
     <div>
       <div class="eyebrow">The Wildcard</div>
@@ -427,13 +698,27 @@ footer{
         Pickled chaos in a jar. Bright carrots, jalapeño bite, sweet heat,
         farmers market energy, and an unexpected addiction warning.
       </p>
+
       <div class="tags">
         <div class="tag">Sweet Heat Chaos</div>
         <div class="tag">Snack At Your Own Risk</div>
         <div class="tag">Unexpected Addiction</div>
       </div>
+
       <div class="heat">🔥🔥</div>
+
+      <div class="profile">
+        <div class="profile-card"><strong>Best With</strong><span>BBQ plates, sandwiches, tacos, cold fridge raids</span></div>
+        <div class="profile-card"><strong>Flavor</strong><span>Sweet pickled crunch, jalapeño bite, market energy</span></div>
+        <div class="profile-card"><strong>Format</strong><span>Mason jar chaos, not a bottle</span></div>
+      </div>
+
+      <div class="sauce-actions">
+        <a class="btn" href="../the-supply/">Request The Jar</a>
+        <a class="btn alt" href="#ghost">Back To Top Heat</a>
+      </div>
     </div>
+
     <div class="visual">
       <img class="poster" src="../asset/flat-carrot.png" alt="Spicy Sweet Carrots label">
       <img class="bottle" src="../asset/bottle-carrot.png" alt="Spicy Sweet Carrots jar">
@@ -441,10 +726,31 @@ footer{
   </div>
 </section>
 
+<section class="bundle">
+  <div class="wrap bundle-grid">
+    <div>
+      <div class="eyebrow">Best First Move</div>
+      <h2>The Starter Pack <em>Hits Different</em></h2>
+      <p>
+        Five sauces, five personalities, one full introduction to Fay-Town heat.
+        This is the box for people who want the whole lineup, the full brand,
+        and enough sauce to start making bad decisions immediately.
+      </p>
+
+      <div class="sauce-actions">
+        <a class="btn" href="../the-supply/">Request The Starter Pack</a>
+        <a class="btn alt" href="../contact/">Wholesale / Restaurant Inquiry</a>
+      </div>
+    </div>
+
+    <img src="../asset/market-box.png" alt="Fay-Town Hottie starter pack">
+  </div>
+</section>
+
 </main>
 
-<footer>
-  Fay-Town Hottie • The Flavor Universe • Handmade In Fay-Town
+<footer class="footer">
+  Fay-Town Hottie • The Flavor Universe • Handmade In Fay-Town • No Weak Sauce
 </footer>
 
 </body>
