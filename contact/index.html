@@ -1,1 +1,310 @@
+<!-- ===== PART 1 START: HEAD + CSS ===== -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact | Fay-Town Hottie</title>
 
+<style>
+:root{
+  --black:#050403;
+  --cream:#f2e0b5;
+  --red:#e33a29;
+  --green:#8ab83e;
+  --orange:#f47820;
+  --muted:#c8b98d;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  background:#050403;
+  color:var(--cream);
+  font-family:Arial, Helvetica, sans-serif;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 25%,rgba(227,58,41,.32),transparent 32%),
+    radial-gradient(circle at 85% 25%,rgba(138,184,62,.16),transparent 30%),
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:auto,auto,42px 42px,42px 42px;
+  z-index:-2;
+}
+
+a{text-decoration:none;color:inherit;}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto;}
+
+header{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:50;
+  padding:16px 0;
+  background:linear-gradient(to bottom,rgba(5,4,3,.96),rgba(5,4,3,.55),transparent);
+  backdrop-filter:blur(12px);
+}
+
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
+}
+
+.logo{height:58px;display:block;}
+
+nav{
+  display:flex;
+  gap:30px;
+  font-size:13px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:900;
+  color:#d8c79c;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 20px;
+  border-radius:999px;
+  border:2px solid var(--cream);
+  background:var(--red);
+  color:white;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:12px;
+  font-weight:900;
+  box-shadow:0 14px 40px rgba(227,58,41,.38);
+}
+
+.hero{
+  min-height:100vh;
+  display:grid;
+  align-items:center;
+  padding:135px 0 70px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.eyebrow{
+  color:var(--green);
+  text-transform:uppercase;
+  letter-spacing:.24em;
+  font-size:13px;
+  font-weight:900;
+  margin-bottom:16px;
+}
+
+h1{
+  font-size:clamp(62px,10vw,145px);
+  line-height:.78;
+  text-transform:uppercase;
+  letter-spacing:-.08em;
+  color:var(--red);
+  text-shadow:4px 4px 0 #000,0 0 44px rgba(227,58,41,.35);
+}
+
+.lead{
+  margin-top:26px;
+  color:#e1d3aa;
+  font-size:clamp(20px,2vw,27px);
+  line-height:1.48;
+  font-weight:850;
+}
+
+.contact-card{
+  border-radius:30px;
+  background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
+  border:2px solid rgba(242,224,181,.2);
+  padding:32px;
+  box-shadow:0 30px 80px rgba(0,0,0,.62);
+}
+
+form{
+  display:grid;
+  gap:16px;
+}
+
+label{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-weight:900;
+  color:var(--green);
+}
+
+input,select,textarea{
+  width:100%;
+  border:2px solid rgba(242,224,181,.22);
+  background:#080604;
+  color:var(--cream);
+  border-radius:16px;
+  padding:16px;
+  font-size:16px;
+  font-weight:800;
+  outline:none;
+}
+
+textarea{min-height:145px;resize:vertical;}
+
+input:focus,select:focus,textarea:focus{
+  border-color:var(--red);
+  box-shadow:0 0 25px rgba(227,58,41,.22);
+}
+
+.quick{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:28px;
+}
+
+.quick a{
+  border-radius:20px;
+  padding:20px;
+  background:#0b0806;
+  border:1px solid rgba(242,224,181,.18);
+  font-weight:900;
+  line-height:1.25;
+}
+
+.quick span{
+  display:block;
+  color:var(--green);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  margin-bottom:8px;
+}
+
+footer{
+  padding:42px 0 55px;
+  text-align:center;
+  color:#bfae86;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-size:12px;
+  font-weight:900;
+}
+
+@media(max-width:900px){
+  nav{display:none;}
+  .grid{grid-template-columns:1fr;}
+  .quick{grid-template-columns:1fr;}
+}
+
+@media(max-width:560px){
+  .logo{height:50px;}
+  .hero{padding-top:115px;}
+}
+</style>
+</head>
+<!-- ===== PART 1 END ===== -->
+
+  <!-- ===== PART 2 START: BODY ===== -->
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="../index.html">
+      <img class="logo" src="../asset/logo-horizontal.png" alt="Fay-Town Hottie">
+    </a>
+
+    <nav>
+      <a href="../the-sauce/">The Sauce</a>
+      <a href="../the-story/">The Story</a>
+      <a href="../the-supply/">The Supply</a>
+      <a href="../the-cult/">The Cult</a>
+      <a href="../contact/">Contact</a>
+    </nav>
+
+    <a class="btn" href="../the-supply/">Get Sauce</a>
+  </div>
+</header>
+
+<main class="hero">
+  <div class="wrap grid">
+
+    <section>
+      <div class="eyebrow">Talk To The Heat Department</div>
+      <h1>Make Contact</h1>
+      <p class="lead">
+        Orders, wholesale, restaurant bottles, market invites, merch drops,
+        emotional damage reports, and general hot sauce chaos can all start here.
+      </p>
+
+      <div class="quick">
+        <a href="mailto:orders@faytownhottie.com?subject=Fay-Town%20Hottie%20Order">
+          <span>Orders</span>
+          Request sauce, bundles, and current drops.
+        </a>
+
+        <a href="mailto:orders@faytownhottie.com?subject=Wholesale%20Inquiry">
+          <span>Wholesale</span>
+          Restaurants, shops, markets, and food trucks.
+        </a>
+
+        <a href="mailto:orders@faytownhottie.com?subject=Merch%20Inquiry">
+          <span>Merch</span>
+          Shirts, hats, stickers, koozies, and chaos packs.
+        </a>
+      </div>
+    </section>
+
+    <section class="contact-card">
+      <form action="#" method="POST">
+        <!-- Replace # with your Formspree URL later -->
+
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@email.com" required>
+        </div>
+
+        <div>
+          <label for="reason">What Are You After?</label>
+          <select id="reason" name="reason">
+            <option>Order Sauce</option>
+            <option>Wholesale / Restaurant Inquiry</option>
+            <option>Merch</option>
+            <option>Market / Event Invite</option>
+            <option>General Chaos</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us what kind of heat you need..." required></textarea>
+        </div>
+
+        <button class="btn" type="submit">Send The Signal</button>
+      </form>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  Fay-Town Hottie • Contact The Heat Department • Burn First, Ask Questions Later
+</footer>
+
+</body>
+</html>
+<!-- ===== PART 2 END ===== -->
