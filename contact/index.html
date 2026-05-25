@@ -4,7 +4,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>Contact | Fay-Town Hottie</title>
+<link rel="stylesheet" href="../shared/nav.css">
 
 <style>
 :root{
@@ -17,6 +19,8 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
 
 body{
   background:#050403;
@@ -38,35 +42,20 @@ body::before{
   z-index:-2;
 }
 
-a{text-decoration:none;color:inherit;}
-.wrap{width:min(1180px,calc(100% - 40px));margin:auto;}
-
-header{
+body::after{
+  content:"";
   position:fixed;
-  top:0;left:0;right:0;
-  z-index:50;
-  padding:16px 0;
-  background:linear-gradient(to bottom,rgba(5,4,3,.96),rgba(5,4,3,.55),transparent);
-  backdrop-filter:blur(12px);
+  inset:0;
+  background:rgba(0,0,0,.38);
+  z-index:-1;
+  pointer-events:none;
 }
 
-.nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:24px;
-}
+a{text-decoration:none;color:inherit;}
 
-.logo{height:58px;display:block;}
-
-nav{
-  display:flex;
-  gap:30px;
-  font-size:13px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  font-weight:900;
-  color:#d8c79c;
+.wrap{
+  width:min(1180px,calc(100% - 40px));
+  margin:auto;
 }
 
 .btn{
@@ -83,6 +72,18 @@ nav{
   font-size:12px;
   font-weight:900;
   box-shadow:0 14px 40px rgba(227,58,41,.38);
+  transition:.2s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px) rotate(-1deg);
+  box-shadow:0 20px 55px rgba(227,58,41,.55);
+}
+
+.btn.alt{
+  background:transparent;
+  color:var(--cream);
+  box-shadow:none;
 }
 
 .hero{
@@ -125,12 +126,59 @@ h1{
   font-weight:850;
 }
 
+.quick{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+  margin-top:30px;
+}
+
+.quick a{
+  border-radius:20px;
+  padding:20px;
+  background:#0b0806;
+  border:1px solid rgba(242,224,181,.18);
+  font-weight:900;
+  line-height:1.25;
+  transition:.2s ease;
+}
+
+.quick a:hover{
+  transform:translateY(-3px);
+  border-color:rgba(242,224,181,.42);
+  box-shadow:0 18px 45px rgba(0,0,0,.36);
+}
+
+.quick span{
+  display:block;
+  color:var(--green);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  margin-bottom:8px;
+}
+
 .contact-card{
   border-radius:30px;
   background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
   border:2px solid rgba(242,224,181,.2);
   padding:32px;
   box-shadow:0 30px 80px rgba(0,0,0,.62);
+}
+
+.form-title{
+  font-size:40px;
+  line-height:.92;
+  text-transform:uppercase;
+  color:var(--cream);
+  margin-bottom:10px;
+}
+
+.form-note{
+  color:#d8c89c;
+  font-weight:800;
+  line-height:1.45;
+  margin-bottom:24px;
 }
 
 form{
@@ -158,63 +206,121 @@ input,select,textarea{
   outline:none;
 }
 
-textarea{min-height:145px;resize:vertical;}
+textarea{
+  min-height:145px;
+  resize:vertical;
+}
 
 input:focus,select:focus,textarea:focus{
   border-color:var(--red);
   box-shadow:0 0 25px rgba(227,58,41,.22);
 }
 
-.quick{
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.section{
+  padding:82px 0;
+  border-top:1px solid rgba(242,224,181,.14);
+}
+
+.section-title{
+  font-size:clamp(44px,7vw,92px);
+  line-height:.86;
+  text-transform:uppercase;
+  letter-spacing:-.07em;
+  text-shadow:4px 4px 0 #000;
+}
+
+.section-title em{
+  color:var(--red);
+  font-style:normal;
+}
+
+.info-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:16px;
-  margin-top:28px;
+  gap:18px;
+  margin-top:36px;
 }
 
-.quick a{
-  border-radius:20px;
-  padding:20px;
-  background:#0b0806;
-  border:1px solid rgba(242,224,181,.18);
-  font-weight:900;
-  line-height:1.25;
+.info-card{
+  padding:26px;
+  border-radius:24px;
+  background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.018));
+  border:2px solid rgba(242,224,181,.16);
 }
 
-.quick span{
-  display:block;
-  color:var(--green);
-  font-size:12px;
+.info-card h3{
+  font-size:30px;
+  line-height:.95;
   text-transform:uppercase;
-  letter-spacing:.12em;
-  margin-bottom:8px;
+  color:var(--red);
+  margin-bottom:14px;
 }
 
-footer{
-  padding:42px 0 55px;
+.info-card p{
+  color:#d8c89c;
+  line-height:1.5;
+  font-weight:800;
+}
+
+.footer{
+  padding:58px 0 86px;
   text-align:center;
   color:#bfae86;
   text-transform:uppercase;
   letter-spacing:.14em;
   font-size:12px;
   font-weight:900;
+  border-top:1px solid rgba(242,224,181,.18);
 }
+<!-- ===== PART 1 END ===== -->
 
+  <!-- ===== PART 2 START: RESPONSIVE CSS + BODY HERO ===== -->
 @media(max-width:900px){
-  nav{display:none;}
-  .grid{grid-template-columns:1fr;}
-  .quick{grid-template-columns:1fr;}
+  .hero{
+    min-height:auto;
+    padding:118px 0 58px;
+  }
+
+  .grid,
+  .info-grid{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
 }
 
 @media(max-width:560px){
-  .logo{height:50px;}
-  .hero{padding-top:115px;}
+  .wrap{
+    width:min(1180px,calc(100% - 28px));
+  }
+
+  .quick,
+  .split{
+    grid-template-columns:1fr;
+  }
+
+  .btn{
+    width:100%;
+    padding:13px 16px;
+    font-size:10px;
+  }
+
+  .contact-card{
+    padding:24px;
+  }
+
+  .section{
+    padding:58px 0;
+  }
 }
 </style>
 </head>
-<!-- ===== PART 1 END ===== -->
 
-  <!-- ===== PART 2 START: BODY ===== -->
 <body>
 
 <header>
@@ -235,58 +341,81 @@ footer{
   </div>
 </header>
 
-<main class="hero">
+<main>
+
+<section class="hero">
   <div class="wrap grid">
 
     <section>
       <div class="eyebrow">Talk To The Heat Department</div>
       <h1>Make Contact</h1>
+
       <p class="lead">
         Orders, wholesale, restaurant bottles, market invites, merch drops,
         emotional damage reports, and general hot sauce chaos can all start here.
       </p>
 
       <div class="quick">
-        <a href="mailto:orders@faytownhottie.com?subject=Fay-Town%20Hottie%20Order">
+        <a href="../the-supply/#order">
           <span>Orders</span>
-          Request sauce, bundles, and current drops.
+          Request sauce, bundles, jars, stickers, and current drops.
         </a>
 
-        <a href="mailto:orders@faytownhottie.com?subject=Wholesale%20Inquiry">
+        <a href="#wholesale">
           <span>Wholesale</span>
-          Restaurants, shops, markets, and food trucks.
+          Restaurants, shops, markets, food trucks, and bars.
         </a>
 
-        <a href="mailto:orders@faytownhottie.com?subject=Merch%20Inquiry">
-          <span>Merch</span>
-          Shirts, hats, stickers, koozies, and chaos packs.
+        <a href="#events">
+          <span>Markets / Events</span>
+          Invite Fay-Town heat to pop-ups, markets, and local chaos.
+        </a>
+
+        <a href="../the-supply/#cult">
+          <span>Merch / Stickers</span>
+          Shirts, hats, koozies, sticker packs, and chaos bundles.
         </a>
       </div>
     </section>
 
     <section class="contact-card">
+      <h2 class="form-title">Send The Signal</h2>
+      <p class="form-note">
+        Use this form for orders, wholesale, collabs, events, merch, or anything that requires sauce supervision.
+      </p>
+
       <form action="#" method="POST">
         <!-- Replace # with your Formspree URL later -->
 
-        <div>
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" placeholder="Your name" required>
+        <div class="split">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required>
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@email.com" required>
+          </div>
         </div>
 
-        <div>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@email.com" required>
-        </div>
+        <div class="split">
+          <div>
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="Optional">
+          </div>
 
-        <div>
-          <label for="reason">What Are You After?</label>
-          <select id="reason" name="reason">
-            <option>Order Sauce</option>
-            <option>Wholesale / Restaurant Inquiry</option>
-            <option>Merch</option>
-            <option>Market / Event Invite</option>
-            <option>General Chaos</option>
-          </select>
+          <div>
+            <label for="reason">What Are You After?</label>
+            <select id="reason" name="reason">
+              <option>Order Sauce</option>
+              <option>Wholesale / Restaurant Inquiry</option>
+              <option>Market / Event Invite</option>
+              <option>Merch / Stickers</option>
+              <option>Brand Collab</option>
+              <option>General Chaos</option>
+            </select>
+          </div>
         </div>
 
         <div>
@@ -299,12 +428,69 @@ footer{
     </section>
 
   </div>
+</section>
+<!-- ===== PART 2 END ===== -->
+
+  <!-- ===== PART 3 START: INFO SECTIONS + FOOTER ===== -->
+<section class="section" id="wholesale">
+  <div class="wrap">
+    <div class="eyebrow">Restaurant / Wholesale</div>
+    <h2 class="section-title">Put Fay-Town <em>On The Table</em></h2>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Restaurants</h3>
+        <p>Table bottles, wing sauce, taco sauce, burger builds, fry dip, sandwich sauce, and menu collab heat.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Food Trucks</h3>
+        <p>Small batch local sauce with enough personality to make a menu item feel like an event.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Retail / Markets</h3>
+        <p>Starter cases, sampler packs, jars, stickers, and merch that make the table feel like a brand drop.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="events">
+  <div class="wrap">
+    <div class="eyebrow">Markets / Pop-Ups / Local Chaos</div>
+    <h2 class="section-title">Invite The <em>Heat</em></h2>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Market Tables</h3>
+        <p>Sampler packs, individual bottles, spicy carrots, stickers, posters, and people pretending they can handle Ghost Rider.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Backyard Events</h3>
+        <p>Grill nights, cookouts, wing nights, burger builds, and anything where bland food should not be allowed.</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Collabs</h3>
+        <p>Food trucks, breweries, delis, burger spots, taco shops, and local brands that want their own sauce moment.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:34px;">
+      <a class="btn" href="../the-supply/#order">Start A Request</a>
+      <a class="btn alt" href="../the-sauce/" style="margin-left:10px;">Meet The Sauces</a>
+    </div>
+  </div>
+</section>
+
 </main>
 
-<footer>
-  Fay-Town Hottie • Contact The Heat Department • Burn First, Ask Questions Later
+<footer class="footer">
+  Fay-Town Hottie • Contact The Heat Department • Burn First, Ask Questions Later • No Weak Sauce
 </footer>
 
 </body>
 </html>
-<!-- ===== PART 2 END ===== -->
+<!-- ===== PART 3 END ===== -->
