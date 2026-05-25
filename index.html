@@ -96,6 +96,12 @@
       font-size:25px;
     }
 
+      .nav-logo {
+  height: 54px;
+  width: auto;
+  display: block;
+}
+    
     nav {
       display:flex;
       align-items:center;
@@ -532,6 +538,14 @@
       .hero-actions { flex-direction:column; }
       section { padding:72px 0; }
     }
+.hero-logo {
+  width: min(92%, 560px);
+  height: auto;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 30px 45px rgba(0,0,0,.65));
+}
+    
   </style>
 </head>
 
@@ -539,8 +553,7 @@
   <header>
     <div class="wrap nav">
       <a class="brand" href="#top">
-        <span class="brand-mark">🔥</span>
-        <span>Fay-Town Hottie</span>
+        <img class="nav-logo" src="assets/logo-horizontal.png" alt="Fay-Town Hottie logo">
       </a>
 
       <nav>
@@ -572,15 +585,7 @@
 
         <div class="hero-card">
           <div class="bottle-stage">
-            <div class="bottle">
-              <div class="label">
-                <small>Fay-Town</small>
-                <strong>Hottie</strong>
-                <small>Handmade Hot Sauce</small>
-                <small>Burn First</small>
-              </div>
-            </div>
-            <div class="pepper-face">🌶️</div>
+            <img class="hero-logo" src="assets/logo-hero.png" alt="Fay-Town Hottie Arkansas Heat logo">
           </div>
         </div>
       </div>
