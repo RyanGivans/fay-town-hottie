@@ -250,6 +250,37 @@ h1{
   line-height:1.5;
   font-weight:800;
 }
+
+  .origin-art{
+  width:100%;
+  margin-top:34px;
+  border-radius:26px;
+  box-shadow:0 30px 80px rgba(0,0,0,.65);
+  cursor:pointer;
+}
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  z-index:999;
+  background:rgba(0,0,0,.92);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+
+.lightbox img{
+  max-width:96vw;
+  max-height:92vh;
+  border-radius:16px;
+  box-shadow:0 30px 90px rgba(0,0,0,.8);
+}
+
+.lightbox.active{
+  display:flex;
+}
+  
 footer{
   padding:48px 0 60px;
   text-align:center;
@@ -354,47 +385,30 @@ footer{
 </section>
 
 <section class="section">
-  <div class="wrap story-grid">
-    <div>
-      <div class="eyebrow">The Highly Questionable Timeline</div>
-      <h2 class="section-title">How It Got <em>Out Of Hand</em></h2>
-    </div>
+  <div class="wrap">
+    <div class="eyebrow">The Highly Questionable Timeline</div>
 
-    <div class="timeline">
-      <div class="moment">
-        <div class="year">01</div>
-        <div>
-          <h3>The First Batch</h3>
-          <p>A small batch was made with real peppers, real flavor, and absolutely no concern for emotional recovery time.</p>
-        </div>
-      </div>
+    <h2 class="section-title">
+      How It Got <em>Out Of Hand</em>
+    </h2>
 
-      <div class="moment">
-        <div class="year">02</div>
-        <div>
-          <h3>The Test Subjects</h3>
-          <p>Friends and family were offered samples. Some smiled. Some sweated. One person allegedly saw the future.</p>
-        </div>
-      </div>
+    <p class="lead" style="max-width:760px;">
+      A visual history of kitchen chaos, emotional pepper damage, sandwich incidents,
+      and the moment Fay-Town Hottie became a problem with branding potential.
+    </p>
 
-      <div class="moment">
-        <div class="year">03</div>
-        <div>
-          <h3>The Sandwich Incident</h3>
-          <p>Someone put it on a sandwich and immediately declared regular condiments legally dead.</p>
-        </div>
-      </div>
-
-      <div class="moment">
-        <div class="year">04</div>
-        <div>
-          <h3>The Drop Culture Begins</h3>
-          <p>Suddenly it needed labels, stickers, merch, a supply list, and probably a waiver.</p>
-        </div>
-      </div>
-    </div>
+    <img
+      class="origin-art"
+      src="../asset/origin-story.png"
+      alt="Fay-Town Hottie origin story timeline"
+      onclick="openLightbox()"
+    >
   </div>
 </section>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img src="../asset/origin-story.png" alt="Fay-Town Hottie origin story enlarged">
+</div>
 
 <section class="section">
   <div class="wrap">
@@ -449,6 +463,16 @@ footer{
 <footer>
   Fay-Town Hottie • Handmade In Fay-Town • Burn First, Ask Questions Later
 </footer>
+
+  <script>
+function openLightbox(){
+  document.getElementById("lightbox").classList.add("active");
+}
+
+function closeLightbox(){
+  document.getElementById("lightbox").classList.remove("active");
+}
+</script>
 
 </body>
 </html>
