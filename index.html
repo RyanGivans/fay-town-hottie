@@ -265,9 +265,6 @@ h1 span{
 
 @media(max-width:900px){
 
-  nav{
-    display:none;
-  }
 
   .hero{
     min-height:100svh;
@@ -353,6 +350,30 @@ h1 span{
 
 }
 
+  /* ===== MOBILE NAV START ===== */
+@media(max-width:900px){
+  nav{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:200;
+    display:flex;
+    justify-content:flex-start;
+    gap:18px;
+    padding:14px 16px;
+    background:rgba(5,4,3,.97);
+    border-top:2px solid var(--cream);
+    font-size:10px;
+    overflow-x:auto;
+  }
+
+  body{
+    padding-bottom:76px;
+  }
+}
+/* ===== MOBILE NAV END ===== */
+  
 </style>
 </head>
 <!-- ===== PART 1 END ===== -->
