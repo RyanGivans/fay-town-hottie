@@ -292,7 +292,22 @@ font-weight:900;
 }
 
 @media(max-width:900px){
-nav{display:none;}
+nav{
+position:fixed;
+left:0;
+right:0;
+bottom:0;
+z-index:200;
+display:flex;
+justify-content:flex-start;
+gap:18px;
+padding:14px 16px;
+background:rgba(5,4,3,.97);
+border-top:2px solid var(--cream);
+font-size:10px;
+overflow-x:auto;
+}
+body{padding-bottom:76px;}
 .hero-grid,.story-grid{grid-template-columns:1fr;}
 .manifesto{grid-template-columns:1fr;}
 }
@@ -318,8 +333,8 @@ nav{display:none;}
 <a href="../the-sauce/">The Sauce</a>
 <a href="../the-story/">The Story</a>
 <a href="../the-supply/">The Supply</a>
-<a href="../the-cult/">The Cult</a>
-<a href="mailto:orders@faytownhottie.com">Contact</a>
+<a href="../the-supply/#cult">The Cult</a>
+<a href="../contact/">Contact</a>
 </nav>
 
 <a class="btn" href="../the-supply/">Get Sauce</a>
