@@ -269,34 +269,86 @@ h1 span{
     display:none;
   }
 
-  .hero-grid{
-    grid-template-columns:1fr;
+  .hero{
+    min-height:100svh;
+    padding:92px 0 70px;
   }
 
-  .hero{
-    padding-top:120px;
+  .hero-grid{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+
+  .eyebrow{
+    margin-bottom:10px;
+    font-size:11px;
+  }
+
+  h1{
+    font-size:clamp(54px, 18vw, 92px);
+  }
+
+  .hero-copy{
+    margin-top:16px;
+    font-size:18px;
+    line-height:1.35;
+  }
+
+  .rotating{
+    margin-top:14px;
+    min-height:34px;
+    font-size:28px;
+  }
+
+  .hero-actions{
+    margin-top:18px;
   }
 
   .hero-image{
-    margin-top:10px;
+    margin-top:0;
+    max-height:38svh;
+    object-fit:cover;
+    object-position:center;
   }
-
-  
 
 }
 
 @media(max-width:560px){
 
-  .hero-actions{
-    flex-direction:column;
+  header{
+    padding:10px 0;
   }
 
-  .btn{
-    width:100%;
+  .wrap{
+    width:min(1280px, calc(100% - 28px));
   }
 
   .logo{
-    height:50px;
+    height:44px;
+  }
+
+  .hero{
+    padding-top:78px;
+  }
+
+  .hero-actions{
+    flex-direction:row;
+    gap:10px;
+  }
+
+  .btn{
+    width:auto;
+    padding:12px 13px;
+    font-size:10px;
+  }
+
+  .hero-image{
+    max-height:34svh;
+    border-radius:18px;
+  }
+
+  .ticker{
+    padding:12px 0;
   }
 
 }
